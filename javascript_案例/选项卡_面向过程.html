@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+ 
+        ul,ol,li{
+            list-style: none;
+        }
+ 
+        .box{
+            width: 800px;
+            height: 600px;
+            border: 3px solid #000;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+ 
+        }
+ 
+        .box > ul{
+            width: 100%;
+            height: 100px;
+            display: flex;
+  
+        }
+ 
+        .box > ul >li{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            background: pink;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            color: #fff;
+ 
+        }
+ 
+        .box > ul >li:last-child{
+            border-right: none;
+        }
+ 
+        .box > ul >li.active{
+            color: red;
+            text-decoration: underline;
+            background: orange;
+        }
+ 
+ 
+        .box > ol {
+            flex: 1;
+            position: relative;
+ 
+        }
+ 
+        .box > ol >li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            background: cyan;
+            display: none;
+            color: #fff;
+        }
+ 
+        .box > ol > li.active{
+            display: flex;
+        }
+ 
+    </style>
+</head>
+<body>
+ 
+    <div class="box"></div>
+   
+    <script>
+        // 面向过程 
+ 
+        // 定义数组 模拟数据库数据
+        var arr1 = [
+            { id:1 , ulLi:'精选' , olLi:'精选内容' },
+            { id:2 , ulLi:'美食' , olLi:'美食内容' },
+            { id:3 , ulLi:'百货' , olLi:'百货内容' },
+            { id:4 , ulLi:'个护' , olLi:'个护内容' },
+        ];
+ 
+ 
+        // 获取标签对象 
+        const oBox = document.querySelector('.box');
+ 
+        // 定义全局变量储存数据
+        let oUlLis ;
+        let oOlLis ;
+ 
+        // 调用函数 动态渲染生成页面
+        setPage();
+ 
+        // 调用函数 添加事件
+        setEvent();
+ 
+        // 定义函数1 动态生成页面
+        function setPage(){
+            // 创建固定的标签节点 ul ol 
+            const oUl = document.createElement('ul');
+            const oOl = document.createElement('ol');
+ 
+            // 定义字符串 存储动态渲染生成的ul>li ol>li
+            let ulLiStr = '';
+            let olLiStr = '';
+ 
+            // 循环遍历数组 根据数组中的内容动态渲染生成li标签
+            arr1.forEach( function(item,key){
+                // item 是 数组单元存储的数据 也就是 存储数据的对象
+                // key 是 数组单元的索引下标
+ 
+                // 第一个ul>li 有 class,active样式
+                ulLiStr += key === 0 ? `<li name="ulLi" index="${key}" class="active">${item.ulLi}</li>` : `<li index="${key}" name="ulLi">${item.ulLi}</li>` ;
+ 
+                // 第一个ol>li 有 class,active样式
+                olLiStr += key === 0 ? `<li class="active">${item.olLi}</li>` : `<li>${item.olLi}</li>` ;
+            });
+ 
+            console.log( ulLiStr );
+            console.log( olLiStr );
+ 
+            // 将字符串写入ul ol 标签
+            oUl.innerHTML = ulLiStr ;
+            oOl.innerHTML = olLiStr ;
+ 
+            // 将 ul ol 标签 写入 div标签中
+            oBox.appendChild( oUl );
+            oBox.appendChild( oOl );
+ 
+            // 获取所有的ul>li
+            oUlLis = oUl.querySelectorAll('li');
+ 
+            // 获取所有的ol>li
+            oOlLis = oOl.querySelectorAll('li');
+ 
+        }
+ 
+        // 定义函数2 给标签添加事件
+        // 参数 绑定事件的事件类型 可以是click mouseover 默认值是 mouseover
+        function setEvent( event = 'mouseover' ){
+            // 给 父级标签 添加 事件 通过事件委托完成效果
+            oBox.addEventListener( event , function(e){
+                if( e.target.getAttribute('name') === 'ulLi' ){
+                    // 清除所有 ul>li 的 class,active
+                    oUlLis.forEach( function(item , key){
+                        // item 是 ul>li中 li标签对象
+                        // key 是 ul>li中 li标签对象的索引下标
+                        // 同时也是 ol>li中 li标签对象的索引下标 
+                        item.classList.remove('active');
+ 
+                        // key是ul>li的索引下标 也就是ol>li的索引下标
+                        // oOlLs数组可以通过索引下标 获取到 ol>li标签对象
+                        oOlLis[key].classList.remove('active');
+                    })
+ 
+                    // 给触发事件的ul>li标签添加class,active
+                    e.target.classList.add('active');
+ 
+                    // 给触发事件的ul>li标签 对应的ol>li标签添加class,active
+                    // 也就是和 e.target 触发事件标签 索引下标相同的 ol>li标签
+                    // 也就是获取 e.target标签 index属性的属性值
+                    // 标签属性的属性值 都是 字符串类型 需要转化为数值类型
+                    oOlLis[ Number( e.target.getAttribute('index') ) ].classList.add('active');
+ 
+                }
+            })
+        }
+ 
+    </script>
+ 
+</body>
+</html>
