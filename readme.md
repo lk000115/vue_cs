@@ -10,9 +10,9 @@
 - 创建 
   - document.write   　*[缺点:] 在页面加载完后会重绘页面,原有的页面都会消失*
   - innerHTML       　*如果循环拼串复制给innerHTML,会影响效率*  
-  - creatElement      
+  - document.creatElement      
 - 元素的增加   
-  - appendChild　　　
+  - 父元素.appendChild(子元素)　　　
   - insertBfore
 - 删除节点
   - node.removeChild(child)    删除父节点(node)下面的子节点(child)
