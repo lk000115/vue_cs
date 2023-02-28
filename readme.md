@@ -36,4 +36,4 @@
        - btn.onclick = function(){处理事件代码}    同一事件只能绑定一个处理函数
     2. 方法监听注册方式
        - btn.addEventListener('click' , fn [,可选布尔值] ) 同一事件可绑定多个处理函数
-       
+    3.  123
