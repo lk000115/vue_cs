@@ -54,4 +54,7 @@
        - btn.onclick = function(){处理事件代码}    同一事件只能绑定一个处理函数
     2. 方法监听注册方式
        - btn.addEventListener('click' , fn [,可选布尔值] ) 同一事件可绑定多个处理函数
-    3.  123
+  - 键盘事件  keyup keydown keypress(检测不到功能键:回车键,等) 
+
+###  BOM
+- resize 屏幕大小改变时触发事件  可以获取窗口尺寸 window.innerWidth
