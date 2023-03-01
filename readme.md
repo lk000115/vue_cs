@@ -5,6 +5,7 @@
 4. 添加节点   node.appendChild  insertBfore(要添加的元素,添加位置)
 5. 删除节点   node.removeChild(child)    删除父节点(node)下面的子节点(child)
 6. 复制节点   node.cloneNode(true)   括号里面是true就复制标签里面的内容,否指只复制元素
+7. css一开始需要设定margin和padding为 0px
 
 ### 对dom操作,主要对元素的操作,有创建,增,删,改.查,属性操作,事件操作
 - 创建 
@@ -30,7 +31,7 @@
   - getAttribute: 得到dom的属性值
   - removeAttribute 移除属性
 - 事件操作  给事件绑定处理函数或者说是注册事件
-  - 鼠标事件 onclick onmouseover  onfocus
+  - 鼠标事件 onclick onmouseover  focus(获取焦点),blur (失去焦点)
   - 注册事件的两种方式
     1. 传统方式:
        - btn.onclick = function(){处理事件代码}    同一事件只能绑定一个处理函数
