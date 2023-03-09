@@ -8,10 +8,17 @@
     <script src="../js/vue.js"></script>
 </head>
 <body>
-   <div id="root"></div>
-       <h1>hello , linhao</h1>
+    <div id="root"></div>
+    <h1>hello , {{n}}</h1>
     <script>
         Vue.config.productionTip = false ;
+
+        const x = new Vue({
+           el: '#root' ,
+          data:{
+            n : '八方'
+          } 
+        });
     </script>
 </body>
 </html>
