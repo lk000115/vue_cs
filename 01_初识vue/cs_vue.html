@@ -8,17 +8,22 @@
     <script src="../js/vue.js"></script>
 </head>
 <body>
-    <div id="root"></div>
-    <h1>hello , {{n}}</h1>
+    <div class="root">
+
+      <h1>hello , {{name}}</h1>
+
+    </div>
+
     <script>
         Vue.config.productionTip = false ;
 
         const x = new Vue({
-           el: '#root' ,
+           el: '.root' ,
           data:{
-            n : '八方'
+            name : '八方'
           } 
         });
+
     </script>
 </body>
 </html>
