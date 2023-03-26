@@ -31,7 +31,8 @@
        <!--双向数据绑定  -->
       <input type="text" v-model="message"></input> 
        <p>the message is {{message}}</p>  
-
+       <!--键盘事件  -->
+      <button v-on:keyup.enter="fn">fn</button>
     </div>
 
     <script>
@@ -68,12 +69,15 @@
                this.msg = v ; 
             
              },
-          addOne: function() {
+             addOne: function() {
              this.counter += 1;
-            }   
+            },   
+             fn() {
+                 alert("hai"); 
+              },
+            }
 
-          }
-        });
+          });
 
     </script>
 </body>
