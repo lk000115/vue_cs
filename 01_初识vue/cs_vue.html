@@ -11,6 +11,16 @@
     <div class="root">
 
       <h1>hello , {{name}},{{age}}</h1>
+      <!-- 把标签属性和VUE数据绑定  v-bind -->
+      <a v-bind:href="vuelink" >here</a>   
+      <img v-bind:src="scr_img" alt="">
+      <input v-bind:disabled="isInputDisabled"   type="text">
+      <p v-if="val  < 10">第一个P标签</p>
+      <p v-else-if="val > 10 && val < 20">第二个P标签 </p>
+      <p v-else>第三个P标签</p>
+      <ul>
+        <li v-for="gr in greetings">{{gr}}</li>
+      </ul>
 
     </div>
 
@@ -21,7 +31,12 @@
            el: '.root' ,
           data:{
             name : '八方',
-            age: 18
+            age: 18,
+            vuelink: "http://www.baidu.com", 
+            scr_img: "../imges/a9c-1.jpg" ,
+            isInputDisabled: false,
+            val:  21 ,
+            greetings:["aa","bb","cc","dd"]
           } 
         });
 
