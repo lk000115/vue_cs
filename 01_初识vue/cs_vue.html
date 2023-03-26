@@ -19,8 +19,18 @@
       <p v-else-if="val > 10 && val < 20">第二个P标签 </p>
       <p v-else>第三个P标签</p>
       <ul>
+        <!-- 遍历数组 -->
         <li v-for="gr in greetings">{{gr}}</li>
       </ul>
+      <div v-for="(v,k,i) in (obj)"> {{k}} </div>
+      <div v-for="m in moives">{{m.c}} ----{{m.name}}    </div>
+
+      <button v-on:click="grt('您点击了我')">{{msg}} </button>
+      <!-- 按钮上添加事件修饰符，限制事件只触发一次 -->
+      <button v-on:click.once="addOne">Add 1</button> <p> {{ counter }} </p>
+       <!--双向数据绑定  -->
+      <input type="text" v-model="message"></input> 
+       <p>the message is {{message}}</p>  
 
     </div>
 
@@ -30,14 +40,39 @@
         const x = new Vue({
            el: '.root' ,
           data:{
+            message:"hi",
+            counter: 0,
             name : '八方',
             age: 18,
             vuelink: "http://www.baidu.com", 
             scr_img: "../imges/a9c-1.jpg" ,
             isInputDisabled: false,
             val:  21 ,
-            greetings:["aa","bb","cc","dd"]
-          } 
+            greetings:["aa","bb","cc","dd"],
+            obj:{
+              a: 'apple',
+              b: 'banna',
+              c: 'cat'
+             },
+             moives:[
+              {c:"icon man  ",
+               name: "avges"},
+              {c: "groot",
+              name: "aadd"}
+             ],
+             msg:"请点击"
+
+          },
+          methods:{
+             grt(v){
+               this.msg = v ; 
+            
+             },
+          addOne: function() {
+             this.counter += 1;
+            }   
+
+          }
         });
 
     </script>
