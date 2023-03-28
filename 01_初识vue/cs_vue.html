@@ -31,14 +31,7 @@
        <!--双向数据绑定  -->
       <input type="text" v-model="message"></input> 
        <p>the message is {{message}}</p>  
-       <!-- 绑定鼠标mouseover事件 ,使用事件对象-->
-       <button v-on:mouseover="showRole"> show role</button>
-       <p>{{"tagName : " + tagName}}</p>
-       <!-- v-bind 的简写方式用:替代 -->
-       <a :href="url" target="_blank">百度</a>
-       <!-- v-on:clcik 简写为@click -->
-       <button @click="fn1">vbind简写</button>
-       <p>{{message1}}</p>
+
     </div>
 
     <script>
@@ -78,16 +71,10 @@
                this.msg = v ; 
             
              },
-          addOne: function() {
+             addOne: function() {
              this.counter += 1;
-            }  ,
-           showRole: function(){
-             this.tagName = event.target.tagName  ;
-           },
-           fn1: function(){
-             this.message1 = "hello" ;
-           }  
-            
+            }   
+
           }
         });
 
