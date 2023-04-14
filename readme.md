@@ -58,3 +58,4 @@
 
 ###  BOM
 - resize 屏幕大小改变时触发事件  可以获取窗口尺寸 window.innerWidth
+
