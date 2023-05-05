@@ -55,7 +55,11 @@
     2. 方法监听注册方式
        - btn.addEventListener('click' , fn [,可选布尔值] ) 同一事件可绑定多个处理函数
   - 键盘事件  keyup keydown keypress(检测不到功能键:回车键,等) 
-
+  - 事件对象属性 
+      event.target  返回执行事件的对象
+  - 事件对象方法
+      Event.preventDefault  取消浏览器对当前事件的默认行为
+      Event.stopPropagation 阻止事件在DOM中继续传播
 ###  BOM
 - resize 屏幕大小改变时触发事件  可以获取窗口尺寸 window.innerWidth
 
