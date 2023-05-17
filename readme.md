@@ -17,6 +17,7 @@
    方法监听： 例：btn.addEventListener('click',function(){})  同一事件可以绑定两个处理函数
 
 *  删除事件（解绑事件）
+   例如: div.onclick = null   div.removeEventListener('click', fn)  ---fn:是绑定的事件函数
 *  DOM事件流
 *  事件对象
 *  阻止事件冒泡
@@ -25,6 +26,7 @@
 *  常用键盘事件
 *  
 ### 对dom操作,主要对元素的操作,有创建,增,删,改.查,属性操作,事件操作
+- 利用DOM,JAVASCRIPT可以方便操作html,dom使得html成为一颗dom树,包含文档,元素,节点 
 - 创建 
   - document.write   　*[缺点:] 在页面加载完后会重绘页面,原有的页面都会消失*
   - innerHTML       　*如果循环拼串复制给innerHTML,会影响效率*  
