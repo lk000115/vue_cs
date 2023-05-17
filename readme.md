@@ -19,7 +19,13 @@
 *  删除事件（解绑事件）
    例如: div.onclick = null   div.removeEventListener('click', fn)  ---fn:是绑定的事件函数
 *  DOM事件流
+   1 捕获阶段  2 执行阶段 3 冒泡阶段
+   元素.onclick = function 形式只能得到冒泡阶段   
+   元素.addEventListener('click',fn,true) 能处理捕获和冒泡,第三参数=true时,得到捕获阶段,
+   第三参数为false或空时,得到冒泡阶段,
+   有些事件没有冒泡 如: onblur onfocus
 *  事件对象
+   事件处理函数的系统自带参数: event,记录事件发生的一些信息.如鼠标事件就记录鼠标点击坐标的参数等  
 *  阻止事件冒泡
 *  事件委托
 *  常用鼠标事件   contextmenu 禁止鼠标右键   selectstart 开始选中
