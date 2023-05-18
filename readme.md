@@ -28,6 +28,7 @@
    事件处理函数的系统自带参数: event,记录事件发生的一些信息.如鼠标事件就记录鼠标点击坐标的参数等  
 *  阻止事件冒泡
 *  事件委托
+   在父节点上设置事件监听,让子节点的事件冒泡到父节点来处理 
 *  常用鼠标事件   contextmenu 禁止鼠标右键   selectstart 开始选中
 *  常用键盘事件
 *  
@@ -66,7 +67,7 @@
   - 事件对象属性 
       event.target  返回执行事件的对象
   - 事件对象方法
-      Event.preventDefault  取消浏览器对当前事件的默认行为
+      Event.preventDefault()  取消浏览器对当前事件的默认行为
       Event.stopPropagation 阻止事件在DOM中继续传播
 ###  BOM
 - resize 屏幕大小改变时触发事件  可以获取窗口尺寸 window.innerWidth
