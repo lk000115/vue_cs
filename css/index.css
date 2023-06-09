@@ -1,7 +1,15 @@
-focus {
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 219px;
+    margin-top: 10px;
+}
+
+.focus {
    position: relative;
    width: 721px;
    height: 455px;
+   overflow: hidden;
 
 }
 .focus ul {
