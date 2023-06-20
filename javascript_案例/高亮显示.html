@@ -48,7 +48,15 @@
     </div>
    <script>
     $(function(){
-             
+        $('.wrap li').hover(function(){
+            
+           $(this).siblings().stop().fadeTo(400,0.5);
+        },
+        function(){
+          $(this).siblings().stop().fadeTo(400,1);   
+        }
+        
+        )     
 
     }) 
    
