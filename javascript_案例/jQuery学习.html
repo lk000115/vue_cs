@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery学习</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../js/jquery-3.6.3.js"></script>
+</head>
+<script>
+    $(function(){
+ //   获取属性值
+        // console.log($('div').prop('className'));
+   //获取元素内容函数html, 获取文本text(),获取表单值 val() 
+    //   console.log($('div').html());
+     $('.increment').click(function () {
+        var n = $(this).siblings('.itxt').val();
+        // console.log(n);
+        n++;
+        $(this).siblings('.itxt').val(n);
+     }) 
+    // 元素操作例子cs2   
+      $('.cs2').children().each(function (index,domele) {
+           console.log(index);
+      })
+
+    })
+//  元素操作,
+</script>
+<body>
+    <div class="abc">内容123</div>
+    <div class="quantity-form">
+        <a href="javascript:;" class="decrement">-</a>
+        <input type="text" class="itxt" value="1">
+        <a href="javascript:;" class="increment">+</a>
+    </div>
+
+<div class="cs2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+
+</body>
+</html>
