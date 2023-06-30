@@ -10,7 +10,7 @@
 <body>
     <div class="root">
 
-      <h1>hello , {{name}},{{age}}</h1>
+      <h1>hello , {{name.length}},{{age}},{{new Date()}}</h1>
       <!-- 把标签属性和VUE数据绑定  v-bind -->
       <a v-bind:href="vuelink"  target="_blank">here</a>   
       <img v-bind:src="scr_img" alt="">
@@ -29,7 +29,7 @@
       <!-- 按钮上添加事件修饰符，限制事件只触发一次 -->
       <button v-on:click.once="addOne">Add 1</button> <p> {{ counter }} </p>
        <!--双向数据绑定  -->
-      <input type="text" v-model="message"></input> 
+      <input type="text" v-model="message" placeholder="请输入数据">双向数据绑定</input> 
        <p>the message is {{message}}</p>  
       
     </div>
@@ -77,7 +77,7 @@
 
           }
         });
-
+       console.log(x.obj.a);
     </script>
 </body>
 </html>
