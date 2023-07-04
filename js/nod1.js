@@ -1,6 +1,22 @@
 // 导出为此模块函数add
-exports.add = function(a,b){
-    return a+b ;
+// module.exports.add = function(a,b){
+//     return a+b ;
+// }
+
+function add(x,y) {
+    return x+y ;
 }
 
+function text(){
+    console.log('aaa'); 
+}
+
+module.exports =  {
+     text ,
+     add
+}
+// 导出的另外一种写法
+
+// exports.text = text ;
+// exports.add = add ;
 
