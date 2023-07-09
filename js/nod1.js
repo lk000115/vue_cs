@@ -12,8 +12,8 @@ function text(){
 }
 
 module.exports =  {
-     text ,
-     add
+     add ,
+     text
 }
 // 导出的另外一种写法
 

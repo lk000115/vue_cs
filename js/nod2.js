@@ -3,5 +3,6 @@ var fn = require('./nod1');     //引入模块nod1的功能
 
 // fn.text();
 
+// fn.text();
+// console.log(fn.add(1,2));
 fn.text();
-console.log(fn.add(1,2));
