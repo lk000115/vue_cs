@@ -3,20 +3,20 @@
 //     return a+b ;
 // }
 
-function add(x,y) {
-    return x+y ;
-}
+// function add(x,y) {
+//     return x+y ;
+// }
 
 function text(){
     console.log('aaa'); 
 }
 
-module.exports =  {
-     add ,
-     text
-}
+// module.exports =  {
+//      add ,
+//      text
+// }
 // 导出的另外一种写法
 
-// exports.text = text ;
+exports.text = text ;
 // exports.add = add ;
 
