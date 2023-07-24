@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6案例</title>
+</head>
+<body>
+   <div>es6的实例</div> 
+
+<script>
+//   es6的rest参数代替es5的arguments参数
+function fn (...arg) {
+    console.log(arg);
+}
+fn('a','b',1,2,3)
+
+let obj = {
+    name:'zhansan',
+    age:18
+};
+
+function fn2({age,name}) {
+    
+    console.log('name  '+ name); 
+}
+fn2(obj);
+
+
+
+</script>
+
+</body>
+</html>
