@@ -7,19 +7,35 @@ const fs = require("fs");
 // })
 
 //  3 使用promise封装
- const p = new Promise(function(resolve,reject){
-    fs.readFile("./test1.txt",(err,data)=>{
-       //r如果失败 
-       if(err) reject(err) ;
-      // 如果成功   
-        resolve(data);
-    })    
+//  const p = new Promise(function(resolve,reject){
+//     fs.readFile("./test1.txt",(err,data)=>{
+//        //r如果失败 
+//        if(err) reject(err) ;
+//       // 如果成功   
+//         resolve(data);
+//     })    
      
 
- });
+//  });
 
- p.then(function(value){
-     console.log(value.toString());
- },function(reason){
-     console.log('读取文件失败');
- })
+//  p.then(function(value){
+//      console.log(value.toString());
+//  },function(reason){
+//      console.log('读取文件失败');
+//  })
+
+// 4 嵌套调用
+
+fs.readFile("./test.txt",(err,data1)=>{
+
+    fs.readFile("./test2.txt",(err,data2)=>{
+        let data = `  ${data1}  +
+                      &{data2}
+        `  ;
+        console.log(data);
+    })
+
+})
+
+
+
