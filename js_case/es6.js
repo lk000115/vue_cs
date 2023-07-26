@@ -1,4 +1,4 @@
-// // 1 引入fs模块
+// 1 引入fs模块
 const fs = require("fs");
 // // 2 调用读取文件方法
 // fs.readFile("./test.txt",(err,data)=>{
@@ -26,16 +26,25 @@ const fs = require("fs");
 
 // 4 嵌套调用
 
-fs.readFile("./test.txt",(err,data1)=>{
+// fs.readFile("./test.txt",(err,data1)=>{
 
-    fs.readFile("./test2.txt",(err,data2)=>{
-        let data = `  ${data1}  +
-                      &{data2}
-        `  ;
-        console.log(data);
-    })
+//     fs.readFile("./test2.txt",(err,data2)=>{
+//         let data = `
+//          ${data1}  
+//          ${data2} 
+//         `;
+//         console.log(data);
+//     })
 
-})
+// })
+
+// 5 用promise实现嵌套调用
+ const  p = new Promise(function(resovle,reject){
+    
+
+
+ })
+
 
 
 
