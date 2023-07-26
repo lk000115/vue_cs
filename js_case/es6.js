@@ -39,12 +39,20 @@ const fs = require("fs");
 // })
 
 // 5 用promise实现嵌套调用
- const  p = new Promise(function(resovle,reject){
+ const  p = new Promise(function(resolve,reject){
+     fs.readFile("./test.txt",(err,data)=>{
+          if(err) throw err;
+          resolve(data.toString());
+     })
     
 
-
  })
-
+p.then(function(value){
+    console.log(value);
+},
+function(reason){
+   console.log(reason);
+});
 
 
 
