@@ -29,6 +29,7 @@ const fs = require("fs");
 // fs.readFile("./test.txt",(err,data1)=>{
 
 //     fs.readFile("./test2.txt",(err,data2)=>{
+//    用模板字符串拼接字符串 
 //         let data = `
 //          ${data1}  
 //          ${data2} 
@@ -42,16 +43,31 @@ const fs = require("fs");
  const  p = new Promise(function(resolve,reject){
      fs.readFile("./test.txt",(err,data)=>{
           if(err) throw err;
-          resolve(data.toString());
+          resolve(data);
      })
     
 
  })
-p.then(function(value){
-    console.log(value);
-},
-function(reason){
-   console.log(reason);
+p.then(value=>{
+    return new Promise((resolve)=>{
+        fs.readFile("./test2.txt",(err,data)=>{
+            resolve([value,data]);
+       })               
+    })
+    // console.log(value.toString());
+
+}).then(value=>{
+   return new Promise(resolve=>{
+    fs.readFile("./test.txt",(err,data)=>{
+        value.push(data);
+        resolve(value);
+   })          
+   }) 
+
+}).then(value=>{
+
+   console.log(value.join('\n'));    
+
 });
 
 
