@@ -72,3 +72,11 @@
 ###  BOM
 - resize 屏幕大小改变时触发事件  可以获取窗口尺寸 window.innerWidth
 
+###  node导入报错
+ 
+   import { createRequire } from 'module';
+   const require = createRequire(import.meta.url);
+
+  /*
+   以上两个语句解决COMMONJS导入规范报错问题
+   */

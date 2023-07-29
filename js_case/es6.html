@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6的实例ajax请求</title>
+</head>
+<body>
+   <div>es6的实例ajax请求</div> 
+
+<script>
+//   es6的rest参数代替es5的arguments参数
+// function fn (...arg) {
+//     console.log(arg);
+// }
+// fn('a','b',1,2,3)
+
+// ajax请求测试
+// 接口测试地址 https://api.wrdan.com/ip?url=https://www.baidu.com
+//  1 创建对象
+const p = new Promise((resolve,reject)=>{
+
+  const xhr = new XMLHttpRequest();
+//  2 初始化
+  xhr.open("GET","https://api.wrdan.com/ip?url=https://www.baidu.com") ;
+//  3 发送请求
+  xhr.send();
+//  4 绑定事件,处理响应结果
+  xhr.onreadystatechange = function(){
+    // 判断 
+    if(xhr.readyState === 4){
+        //判断相应状态码  
+        if(xhr.status >=200 && xhr.status < 300){
+            // 表示成功
+            // console.log(xhr.response);
+            resolve(xhr.response); 
+        }else{
+            // 表示失败
+            // console.error(xhr.status);
+            reject(xhr.status)
+        }
+
+    } 
+  }  
+
+})
+
+p.then(function(value){
+   console.log(value);
+},
+function(reason){
+  console.error(reason); 
+})
+
+</script>
+
+</body>
+</html>
