@@ -1,4 +1,14 @@
 {
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "aiXcoder.showTrayIcon": true
+ // vscode不自动补全添加代码
+ "editor.quickSuggestionsDelay": 100,
+ "editor.quickSuggestions": null,
+ "window.zoomLevel": 0,
+ "terminal.integrated.rendererType": "dom",
+ "files.associations": {
+     "*.vue": "html"
+ },
+ "css.validate": false //不做css校验
+// vscode不自动补全添加代码   
 }
