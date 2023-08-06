@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>promise学习</title>
 </head>
 <body>
 
     
 <script>
+ /*
+   promise类,内部放一个函数,函数内部执行异步代码,成功执行resolve函数传递参数
+   失败执行reject函数
+ */   
+const p = new Promise((resolve,reject)=>{
+   let a = 10 ;
+    setTimeout(() => {
+      console.log("----");
+      a++;
+      resolve(a);
+   }, 1000);
 
+})
+p.then((value)=>{
+    console.log("执行后的a= " + value);
+})
 
 </script>
 </body>
