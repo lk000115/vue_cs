@@ -80,3 +80,6 @@
   /*
    以上两个语句解决COMMONJS导入规范报错问题
    */
+
+  nmp i  node-dev  -g
+  npm i  json-server -g  
