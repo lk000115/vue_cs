@@ -81,5 +81,5 @@
    以上两个语句解决COMMONJS导入规范报错问题
    */
 <!-- json-server  test.json  --watch  -->
-  nmp i  node-dev  -g
-  npm i  json-server -g     实时模拟后端api接口   hghg
+  - nmp i  node-dev  -g
+  - npm i  json-server -g     实时模拟后端api接口   hghg
