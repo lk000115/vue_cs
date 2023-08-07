@@ -19,3 +19,5 @@ console.log(pat2.exec(str2));
 
 // console.log('as'.includes('j'));   es6的新函数
 
+var  zz = /^2\d{2}$/ ;     //匹配2开头,后跟两位数字结尾的数
+console.log(zz.test(200));
