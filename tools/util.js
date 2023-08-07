@@ -26,12 +26,12 @@ function ajax(options){
         data = queryStringify(data);
     }
   
-    if(/^get$/i.test(method) && data) url += '?' +data
+    if(/^get$/i.test(method) && data) url += '?' +data  ;
 
-    //  
+    //  dfdf
     const xhr = new XMLHttpRequest();
-    xhr.open(method,url,async);
-    xhr.onload = funtion(){
+    xhr.open(method,url,async) ;
+    xhr.onload = funtion (){
         if(!/^2\d{2}$/.test(xhr.status)){
            error(`错误状态码:${xhr.status}`)
            return
@@ -40,7 +40,7 @@ function ajax(options){
            let result = JSON.parse(xhr.responseText);
            success(result); 
         }catch(err){
-           error('解析失败') 
+           error('解析失败') ;
 
         }      
 
