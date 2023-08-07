@@ -30,7 +30,8 @@ const p = new Promise((resolve,reject)=>{
     // 判断 
     if(xhr.readyState === 4){
         //判断相应状态码  
-        if(xhr.status >=200 && xhr.status < 300){
+        // xhr.status >=200 && xhr.status < 300
+        if( /^2\d{2}$/.test(xhr.status ) ){
             // 表示成功
             // console.log(xhr.response);
             resolve(xhr.response); 

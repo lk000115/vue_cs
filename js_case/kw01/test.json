@@ -1,0 +1,17 @@
+{
+    "data":{
+        "list":[
+           {
+              "name":"aa",
+              "id": "01",
+             "imageurl": "../../imges/01.jpg" 
+ 
+           } ,
+           {
+             "name":"bb",
+             "id": "02",
+            "imageurl": "../../imges/02.jpg" 
+           }
+        ] 
+    }
+ }
