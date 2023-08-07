@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax请求测试</title>
+    <script src="../../tools/util.js"></script>
 </head>
 <body>
     <button id="myget" type="button">get</button>
@@ -16,16 +17,26 @@
    <script>
     // 1  处理get请求
        myget.onclick = function () {
-        //    console.log('绑定成功');
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET","http://localhost:3000/users");
 
-          xhr.onload = function(){
-             if(/^2\d{2}$/.test(xhr.status)){
-                  console.log(xhr.responseText); 
-             } 
-          }
-          xhr.send(); 
+        //    console.log('绑定成功');
+         //  var xhr = new XMLHttpRequest();
+         //  xhr.open("GET","http://localhost:3000/users");
+
+         //  xhr.onload = function(){
+         //     if(/^2\d{2}$/.test(xhr.status)){
+         //          console.log(xhr.responseText); 
+         //     } 
+         //  }
+         //  xhr.send(); 
+      // 调用封装的AJAX方法 
+         ajax({
+            url:"http://localhost:3000/users" ,
+            success: function(res){ 
+                 console.log(res);
+            }
+         })
+
+
        }
 
     // 2 处理POST请求

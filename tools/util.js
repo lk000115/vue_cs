@@ -26,25 +26,27 @@ function ajax(options){
         data = queryStringify(data);
     }
   
-    if(/^get$/i.test(method) && data) url += '?' +data  ;
+    if(/^get$/i.test(method) && data) {url += '?' + data}  ;
 
-    //  dfdf
     const xhr = new XMLHttpRequest();
     xhr.open(method,url,async) ;
-    xhr.onload = funtion (){
-        if(!/^2\d{2}$/.test(xhr.status)){
-           error(`错误状态码:${xhr.status}`)
-           return
-        } 
-        try{
-           let result = JSON.parse(xhr.responseText);
-           success(result); 
-        }catch(err){
-           error('解析失败') ;
+    xhr.onload = function (){
 
-        }      
+        if(!/^2\d{2}$/.test(xhr.status)){
+            error(` 错误状态码:${xhr.status} `)
+            return 
+         } 
+         try{
+            let result = JSON.parse(xhr.responseText);
+            success(result); 
+         }catch(err){
+            error('解析失败') ;
+         }   
 
     }
+
+   
+
 //  设置请求头内的信息
     for(let k in headers) xhr.setRequestHeader(K,headers[k])
      if(/^get$/i.test(method)){
