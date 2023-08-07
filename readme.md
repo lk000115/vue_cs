@@ -82,4 +82,4 @@
    */
 <!-- json-server  test.json  --watch  -->
   - nmp i  node-dev  -g
-  - npm i  json-server -g     实时模拟后端api接口   hghg
+  - npm i  json-server -g     实时模拟后端api接口   
