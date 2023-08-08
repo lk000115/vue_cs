@@ -22,7 +22,7 @@
            }
           init(){
             // 初始化
-            this.bindEvent()
+            this.bindEvent();
             this.getList();
           }
 
@@ -44,19 +44,42 @@
 
         bindEvent(){
     //   绑定事件,利用事件冒泡,把事件绑定在ul-list上, ul-li的事件会冒泡到lists上
+           this.listEle.onclick = evt=>{
+            //    console.log(evt.target);
+               if(evt.target.nodeName==="BUTTON"){
+                  this.removeItem(evt.target);
+               }
 
+           }  
 
         } 
         
          addItem(){
             
          }
+         removeItem(target){
+            // target.parentNode.remove()
+            console.log(target.dataset.index); 拿到点击按钮的ID
+            // ajax({
+            //      url:` http://localhost:3000/list/${target.dataset.index} ` ,
+            //      method:"DELETE" ,   
+            //      success:(res)=>{
+            //         // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
+            //         console.log("删除成功");
+            //      },
+            //      error:function(){
+
+            //      }
+            //  })           
+         }
+
+
         // 把数据渲染到页面  
         render(){
             this.listEle.innerHTML  =  this.listdata.map(item=> ` 
             <li> 
-                ${item["text"]}
-                <Button type="button">DEL</Button> 
+                ${item.text}
+                <Button type="button" data-index=${item.id}} >DEL</Button> 
             </li> `).join("")  ;
 
         } 
