@@ -16,7 +16,7 @@
         // console.log(ajax);
        class TodoList{
            constructor(select){
-               this.list = document.querySelector(select);
+               this.listEle = document.querySelector(select);
                this.listdata = [];
                this.init();
            }
@@ -30,9 +30,9 @@
              ajax({
                  url:"http://localhost:3000/list",    
                  success:(res)=>{
-                    // console.log(res);
-                    // 函数内部调用函数this指向会改变,而箭头函数的this是指向上级函数的this
+                    // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
                     this.listdata = res;
+                    this.render();
                  },
                  error:function(){
 
@@ -42,14 +42,11 @@
           }
 
          addItem(){
-
-
-
+            
          }
         // 把数据渲染到页面  
         render(){
-
-
+            this.listEle.innerHTML  =  this.listdata.map(item=> ` <li> ${item["text"]} </li> `).join("")  ;
         } 
 
 
