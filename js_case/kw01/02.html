@@ -58,19 +58,19 @@
             
          }
          removeItem(target){
-            // target.parentNode.remove()
-            console.log(target.dataset.index); 拿到点击按钮的ID
-            // ajax({
-            //      url:` http://localhost:3000/list/${target.dataset.index} ` ,
-            //      method:"DELETE" ,   
-            //      success:(res)=>{
-            //         // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
-            //         console.log("删除成功");
-            //      },
-            //      error:function(){
+            target.parentNode.remove()
+            // console.log(target.dataset.index);     //拿到点击按钮的ID
+            ajax({
+                 url:` http://localhost:3000/list/${target.dataset.index} ` ,
+                 method:"DELETE" ,   
+                 success:(res)=>{
+                    // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
+                    console.log("删除成功");
+                 },
+                 error:function(){
 
-            //      }
-            //  })           
+                 }
+             })           
          }
 
 
@@ -79,7 +79,7 @@
             this.listEle.innerHTML  =  this.listdata.map(item=> ` 
             <li> 
                 ${item.text}
-                <Button type="button" data-index=${item.id}} >DEL</Button> 
+                <Button type="button" data-index=${item.id} >DEL</Button> 
             </li> `).join("")  ;
 
         } 
