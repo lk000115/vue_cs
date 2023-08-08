@@ -22,6 +22,7 @@
            }
           init(){
             // 初始化
+            this.bindEvent()
             this.getList();
           }
 
@@ -41,12 +42,23 @@
 
           }
 
+        bindEvent(){
+    //   绑定事件,利用事件冒泡,把事件绑定在ul-list上, ul-li的事件会冒泡到lists上
+
+
+        } 
+        
          addItem(){
             
          }
         // 把数据渲染到页面  
         render(){
-            this.listEle.innerHTML  =  this.listdata.map(item=> ` <li> ${item["text"]} </li> `).join("")  ;
+            this.listEle.innerHTML  =  this.listdata.map(item=> ` 
+            <li> 
+                ${item["text"]}
+                <Button type="button">DEL</Button> 
+            </li> `).join("")  ;
+
         } 
 
 
