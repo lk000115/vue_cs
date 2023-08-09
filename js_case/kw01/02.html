@@ -32,7 +32,7 @@
                  url:"http://localhost:3000/list",    
                  success:(res)=>{
                     // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
-                    this.listdata = res;
+                    this.listdata =  res;
                     this.render();
                  },
                  error:function(){
@@ -62,8 +62,10 @@
                  method:"POST" ,   
                  data:{text},
                  success:(res)=>{
-                    console.log("成功");
-                    location.reload();
+                     // location.reload(); //此代码会全局刷新页面,不用
+                     this.listdata = [...this.listdata,res];
+                     this.render();
+                     console.log("成功");
                  },
                  error:function(){
 
