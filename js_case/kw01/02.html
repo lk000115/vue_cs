@@ -6,7 +6,7 @@
     <title>前后端交互案例</title>
 </head>
 <body>
-    <input type="text" placeholder="ss" id="">
+    <input type="text" placeholder="ss" id="mytext">
     <button id="myadd" type="button">add</button>
     <ul class="list">
 
@@ -56,8 +56,19 @@
 
         } 
         
-         addItem(){
-            
+         addItem(text){
+            ajax({
+                 url:` http://localhost:3000/list/ ` ,
+                 method:"POST" ,   
+                 data:{text},
+                 success:(res)=>{
+                    console.log("成功");
+                    location.reload();
+                 },
+                 error:function(){
+
+                 }
+             })            
          }
          removeItem(target){
             target.parentNode.remove()
@@ -91,8 +102,14 @@
         // 类结束  
        } 
        var obj = new TodoList(".list");
-       console.log(obj);
-       
+    //    console.log(obj);
+       var myadd = document.querySelector("#myadd");
+       myadd.onclick = function(){
+        //   console.log(mytext.value); 
+          obj.addItem(mytext.value);  
+
+       }
+
     </script>
 
 </body>

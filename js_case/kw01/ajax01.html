@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajax请求测试</title>
-    <script src="../../tools/util.js"></script>
+    <!-- <script src="../../tools/util.js"></script> -->
 </head>
 <body>
     <button id="myget" type="button">get</button>
@@ -14,7 +14,8 @@
     <button id="mydelete" type="button">delete</button>
 
 
-   <script>
+    <script type="module">
+      import {ajax  } from "../../tools/util.js";
     // 1  处理get请求
        myget.onclick = function () {
 
@@ -28,7 +29,7 @@
          //     } 
          //  }
          //  xhr.send(); 
-      // 调用封装的AJAX方法 
+      // 调用封装的AJAX方法处理get请求 
          ajax({
             url:"http://localhost:3000/users" ,
             success: function(res){ 
@@ -42,19 +43,35 @@
     // 2 处理POST请求
 
       mypost.onclick = function(){
-        var xhr = new XMLHttpRequest()
-        xhr.open("post","http://localhost:3000/users") ;
+      //   var xhr = new XMLHttpRequest()
+      //   xhr.open("post","http://localhost:3000/users") ;
 
-        xhr.onload = function(){
-             if(/^2\d{2}$/.test(xhr.status)){
-                  console.log(xhr.responseText); 
-             } 
-          }       
-        xhr.setRequestHeader("content-type","application/json") ;  
-        xhr.send(JSON.stringify({
-              name:"lili",
-              password:"123456"
-           })) ;
+      //   xhr.onload = function(){
+      //        console.log(xhr.status);
+      //        if(/^2\d{2}$/.test(xhr.status)){
+      //             console.log(xhr.responseText); 
+      //        } 
+      //     }       
+      //   xhr.setRequestHeader("content-type","application/json") ;  
+      //   xhr.send(JSON.stringify({
+      //         name:"kk",
+      //         password:"456"
+      //      })) ;
+        console.log("post----执行了");   
+      ajax({
+            url:"http://localhost:3000/users" ,
+            method:"post",
+            data:{
+               name: "kk",
+               password: "456"
+            },
+            success: function(res){ 
+                 console.log(res);
+            },
+            error:function(err){
+               console.log(err);
+            }
+         })
 
       }     
       
@@ -104,7 +121,7 @@
      mydelete.onclick = function(){
         
         var xhr = new XMLHttpRequest();
-          xhr.open("DELETE","http://localhost:3000/users/5");
+          xhr.open("DELETE","http://localhost:3000/users/6");
 
           xhr.onload = function(){
              if(/^2\d{2}$/.test(xhr.status)){

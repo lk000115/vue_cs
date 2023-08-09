@@ -11,7 +11,7 @@ function ajax(options){
         method:"GET",
         async:true ,   
         data:{},
-        headers:{},
+        headers:{"content-type":"application/json"},
         success: function(){ },
         error: function(){}
     }
@@ -20,8 +20,9 @@ function ajax(options){
         ...options
     }
     
-    if(typeof data ==='object' && headers["content-type"]?.indexOf("JSON") > -1 ){
-         data = JSON.queryStringify(data) 
+    if(typeof data =='object' && headers["content-type"]?.indexOf("json") > -1 ){
+        //  console.log(data);
+         data = JSON.stringify(data) 
     }else{
         data = queryStringify(data);
     }
@@ -29,9 +30,8 @@ function ajax(options){
     if(/^get$/i.test(method) && data) {url += '?' + data}  ;
 
     const xhr = new XMLHttpRequest();
-    xhr.open(method,url,async) ;
+    xhr.open(method,url) ;
     xhr.onload = function (){
-
         if(!/^2\d{2}$/.test(xhr.status)){
             error(` 错误状态码:${xhr.status} `)
             return 
@@ -48,12 +48,11 @@ function ajax(options){
    
 
 //  设置请求头内的信息
-    for(let k in headers) xhr.setRequestHeader(K,headers[k])
+    for( var k in headers) xhr.setRequestHeader(k,headers[k])
      if(/^get$/i.test(method)){
 
         xhr.send();
      }else{
-
         xhr.send(data);
      }
     

@@ -83,3 +83,4 @@
 <!-- json-server  test.json  --watch       运行程序 -->
   - nmp i  node-dev  -g
   - npm i  json-server -g     实时模拟后端api接口   
+  - 用preview on webserver  代替  live server,
