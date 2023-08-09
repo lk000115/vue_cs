@@ -1,17 +1,18 @@
 {
-    "data":{
-        "list":[
-           {
-              "name":"aa",
-              "id": "01",
-             "imageurl": "../../imges/01.jpg" 
- 
-           } ,
-           {
-             "name":"bb",
-             "id": "02",
-            "imageurl": "../../imges/02.jpg" 
-           }
-        ] 
-    }
- }
+    "news":[
+       {"id":1,"title":"kerwen---kwkwkwkwkw","author":"kerwen"},
+       {"id":2,"title":"tiechui--tctctctc","author":"tiechui"}    
+    ],
+    "comments":[
+       {"id":1,"body":"i an men","newsId":1} ,
+       {"id":2,"body":"i an women","newsId":1} ,
+       {"id":3,"body":"2-rmb","newsId":2} ,
+       {"id":4,"body":"3-rmb","newsId":2} 
+    ]   
+
+
+
+
+
+
+}
