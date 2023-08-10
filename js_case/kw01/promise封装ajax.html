@@ -6,6 +6,19 @@
     <title>promise封装ajax</title>
 </head>
 <body>
-    
+    <script type="module" >
+        import {pajax} from "../../tools/util.js"  
+        // console.log(pajax);
+        pajax({
+           url:"http://localhost:3000/news" ,
+           data:{author:"kerwen"}
+        }).then(
+          (value)=>{console.log(value);}          
+   
+        )  
+
+
+
+    </script>
 </body>
 </html>
