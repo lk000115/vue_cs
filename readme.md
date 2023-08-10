@@ -84,4 +84,5 @@
   - nmp i  node-dev  -g       服务器实时刷新 
   - npm i  json-server -g     实时模拟后端api接口   
   - 用preview on webserver  代替  live server,
-  - application/x-www-form-urlencoded    
+  - application/x-www-form-urlencoded  
+  - json-server 请求后端第一页3条数据   ?_page=1&limit=3  
