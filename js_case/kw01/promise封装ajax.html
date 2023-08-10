@@ -10,21 +10,37 @@
         // 应用test.json
         import {pajax} from "../../tools/util.js"  
         // console.log(pajax);  
-        pajax({
-           url:"http://localhost:3000/news" ,
-           data:{author:"kerwen"}
-        }).then(
-               res=>{
-                return pajax({
-                    url:"http://localhost:3000/comments" ,
-                    data:{newsId:res[0].id}
-                })}
+        // pajax({
+        //    url:"http://localhost:3000/news" ,
+        //    data:{author:"kerwen"}
+        // }).then(
+        //        res=>{
+        //         return pajax({
+        //             url:"http://localhost:3000/comments" ,
+        //             data:{newsId:res[0].id}
+        //         })}
    
-        ).then(
-            (res)=>{console.log(res);}
-        )  
-
-
+        // ).then(
+        //     (res)=>{console.log(res);}
+        // )  
+    //用asycn await改造以上代码 
+       async function test(){
+           var res1 = await pajax({
+             url:"http://localhost:3000/news" ,
+             data:{author:"tiechui"}           
+           })
+           var res2 = await pajax({
+              url:"http://localhost:3000/comments" ,
+              data:{newsId:res1[0].id}           
+           })
+        //   console.log(res2);
+           return res2 ;
+// 内部代码问题可以用try--catch  捕获
+       }
+       
+      test().then(
+         res=>{console.log(res);}
+      )
 
     </script>
 </body>
