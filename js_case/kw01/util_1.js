@@ -21,13 +21,14 @@ function ajax(options){
     }
     
     if(typeof data =='object' && headers["content-type"]?.indexOf("json") > -1 ){
-         console.log(data);
+        let data_tmp =  queryStringify(data)
+        if(/^get$/i.test(method) && data) {url +='?'+data_tmp}  ;
+        // console.log(url);
          data = JSON.stringify(data) 
     }else{
         data = queryStringify(data);
     }
   
-    if(/^get$/i.test(method) && data) {url += '?' + data}  ;
 
     const xhr = new XMLHttpRequest();
     xhr.open(method,url) ;
