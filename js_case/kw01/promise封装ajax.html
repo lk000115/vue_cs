@@ -7,14 +7,21 @@
 </head>
 <body>
     <script type="module" >
+        // 应用test.json
         import {pajax} from "../../tools/util.js"  
-        // console.log(pajax);
+        // console.log(pajax);  
         pajax({
            url:"http://localhost:3000/news" ,
            data:{author:"kerwen"}
         }).then(
-          (value)=>{console.log(value);}          
+               res=>{
+                return pajax({
+                    url:"http://localhost:3000/comments" ,
+                    data:{newsId:res[0].id}
+                })}
    
+        ).then(
+            (res)=>{console.log(res);}
         )  
 
 

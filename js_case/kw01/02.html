@@ -12,7 +12,8 @@
 
     </ul>
     <script type="module">
-        import {ajax  } from "../../tools/util.js";
+        // 用的同目录的data.json文件作为数据源 
+        import {ajax,pajax} from "../../tools/util.js";
         // console.log(ajax);
        class TodoList{
            constructor(select){
@@ -51,9 +52,7 @@
                }
 
            }  
-          
-           
-
+             
         } 
         
          addItem(text){
@@ -73,7 +72,7 @@
              })            
          }
          removeItem(target){
-            target.parentNode.remove()
+            target.parentNode.remove();
             // console.log(target.dataset.index);     //拿到点击按钮的ID
             ajax({
                  url:` http://localhost:3000/list/${target.dataset.index} ` ,
@@ -111,6 +110,19 @@
           obj.addItem(mytext.value);  
 
        }
+    // 测试两个promise对象同时运行,结果返回到一个值上
+     var p1 = pajax({
+        url:"http://localhost:3000/looplist"
+     });
+
+     var p2 = pajax({
+        url:"http://localhost:3000/datalist"
+     })
+    
+     Promise.all([p1,p2]).then(
+        (res)=>{console.log(res);
+            
+        })
 
     </script>
 
