@@ -21,7 +21,7 @@ function ajax(options){
     }
     
     if(typeof data =='object' && headers["content-type"]?.indexOf("json") > -1 ){
-        //  console.log(data);
+         console.log(data);
          data = JSON.stringify(data) 
     }else{
         data = queryStringify(data);
