@@ -15,10 +15,10 @@
 
 
     <script type="module">
-      import {ajax  } from "../../tools/util.js";
+      import {ajax,pajax} from "../../tools/util.js";
     // 1  处理get请求
        myget.onclick = function () {
-
+         // 1 直接用ajax处理
         //    console.log('绑定成功');
          //  var xhr = new XMLHttpRequest();
          //  xhr.open("GET","http://localhost:3000/users");
@@ -29,16 +29,24 @@
          //     } 
          //  }
          //  xhr.send(); 
-      // 调用封装的AJAX方法处理get请求 
-         ajax({
-            url:"http://localhost:3000/users" ,
-            success: function(res){ 
-                 console.log(res);
-            }
-         })
+      // 2 调用封装的AJAX方法处理get请求 
+      //    ajax({
+      //       url:"http://localhost:3000/users" ,
+      //       success: function(res){ 
+      //            console.log(res);
+      //       }
+      //    })
 
 
+      //3. 用promise封装的ajax
+         pajax({
+            url:"http://localhost:3000/users" , 
+         }).then(
+            (value)=>{console.log(value);}    
+          
+         )
        }
+        
 
     // 2 处理POST请求
 
