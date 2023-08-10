@@ -58,8 +58,25 @@ function ajax(options){
         xhr.send(data);
      }
     
+}
 
+// 用Promise封装ajax
+function pajax(options){
+       
+    var p = new Promise((resolve,reject)=>{
+       ajax({
+          ...options,     //把传入的对象展开,下面定义的同名函数覆盖此对象的同名函数
+          success:(res)=>{
+            resolve(res);  
+          },
+          error:(err)=>{
+            reject(err);
+          }
+
+       })            
+    }) 
+    return  p
 }
 
 
-export{ajax} 
+export{ajax,pajax} ;
