@@ -15,13 +15,18 @@
     <script>
     //   使用同目录下的data.json数据文件
    myget.onclick = function () {
-        fetch("http://localhost:3000/users").then(
-            res=>{
-               console.log(res); 
-               return  res.json()   
-            } ).then(res=>{
-                console.log(res);
-            })   
+        // fetch("http://localhost:3000/users").then(
+        //     res=>{
+        //        return  res.json()   
+        //     } ).then(res=>{
+        //         console.log(res);
+        //     })  
+        // 以上简写形式
+        fetch("http://localhost:3000/users")
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res);
+        })
      
    }
     </script>
