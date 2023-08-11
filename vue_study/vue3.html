@@ -10,24 +10,24 @@
    <div id="box">
  
     {{name}}
-
+    
 
    </div>
 
 
-    <script src="">
-        console.log(Vue);
-         Vue.greateApp({
+    <script >
+         var obj = {
             data(){
-               
-               return{
-                  name: "zhansan" 
+              return {
 
-               }
+                  name: "acaca"
+                  
+              }}
+            }        
 
-            } 
+         Vue.createApp(obj).mount("#box");
 
-         }).mount("#box");
+     
 
 
     </script>
