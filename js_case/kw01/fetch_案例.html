@@ -28,21 +28,7 @@
           }
 
           getList(){         
-            //  var that = this;
-            // 1 
-            //  ajax({
-            //      url:"http://localhost:3000/list",    
-            //      success:(res)=>{
-            //         // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
-            //         this.listdata =  res;
-            //         this.render();
-            //      },
-            //      error:function(){
 
-            //      }
-            //  })  
-
-         //  2 用fetch实现同样功能
            fetch("http://localhost:3000/list")
            .then(res=>res.json())
            .then(res=>{
@@ -66,38 +52,31 @@
         } 
         
          addItem(text){
-            ajax({
-                 url:` http://localhost:3000/list/ ` ,
-                 method:"POST" ,   
-                 data:{text},
-                 success:(res)=>{
-                     // location.reload(); //此代码会全局刷新页面,不用
-                    //  点击按钮后,先把对象数据更新到后台,再更新对象数据.再刷新到页面
-                     this.listdata = [...this.listdata,res];
-                     this.render();
-                     console.log("成功");
-                 },
-                 error:function(){
-
-                 }
-             })  
              
-             
+            fetch("http://localhost:3000/list/",{
+                method:"POST" ,   
+                body:JSON.stringify({text}),               
+                headers:{"content-type":"application/json"}
+            }).then(res=>res.json())
+            .then(res=>{
+                this.listdata = [...this.listdata,res];
+                this.render();
+                console.log("添加成功");                
+            })
+    
          }
          removeItem(target){
             target.parentNode.remove();
-            // console.log(target.dataset.index);     //拿到点击按钮的ID
-            ajax({
-                 url:` http://localhost:3000/list/${target.dataset.index} ` ,
-                 method:"DELETE" ,   
-                 success:(res)=>{
-                    // 函数内部调用其他函数this指向会改变,而箭头函数的this是指向上级函数的this
-                    console.log("删除成功");
-                 },
-                 error:function(){
+               
+             fetch(`http://localhost:3000/list/${target.dataset.index}`,{
+                method:"DELETE" ,
+             }).then(res=>res.json())
+             .then(res=>{
+                this.getList();
+                // this.render();
+                console.log("删除成功");
+             })
 
-                 }
-             })           
          }
 
 
@@ -123,19 +102,6 @@
           obj.addItem(mytext.value);  
 
        }
-    // 测试两个promise对象同时运行,结果返回到一个值上
-     var p1 = pajax({
-        url:"http://localhost:3000/looplist"
-     });
-
-     var p2 = pajax({
-        url:"http://localhost:3000/datalist"
-     })
-    
-     Promise.all([p1,p2]).then(
-        (res)=>{console.log(res);
-            
-        })
 
     </script>
 

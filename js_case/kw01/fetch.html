@@ -15,19 +15,57 @@
     <script>
     //   使用同目录下的data.json数据文件
    myget.onclick = function () {
-        // fetch("http://localhost:3000/users").then(
-        //     res=>{
-        //        return  res.json()   
-        //     } ).then(res=>{
-        //         console.log(res);
-        //     })  
+        fetch("http://localhost:3000/users").then(
+            res=>{
+                if(res.ok){
+                    // console.log(res);
+                    return  res.json()       //res.text()  返回字符串  
+                }else{
+                    return Promise.reject(res) 
+                }
+            } ).then(res=>{
+                console.log(res);
+            }).catch(err=>{
+                console.log("出错了");
+                console.log(err.status, err.statusText);
+
+            })
         // 以上简写形式
-        fetch("http://localhost:3000/users")
+        // fetch("http://localhost:3000/users")
+        // .then(res=>res.json())
+        // .then(res=>{
+        //     console.log(res);
+        // })   
+   }
+  
+   mypost.onclick = function(){
+          
+     fetch("http://localhost:3000/users",{
+        method:"post",
+        body:JSON.stringify({
+           name:"aa",
+           password:9876 
+        }),
+        headers: {"content-type":"application/json"}
+     })
         .then(res=>res.json())
         .then(res=>{
             console.log(res);
-        })
-     
+        })   
+
+   }    
+
+   mydelete.onclick = function(){
+
+    fetch("http://localhost:3000/users/6",{
+        method:"delete"
+    })
+    .then(res=>res.json())
+    .then(res=>{
+            console.log(res);
+        })  
+
    }
+
     </script>
 </html>

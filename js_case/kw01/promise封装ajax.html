@@ -7,7 +7,7 @@
 </head>
 <body>
     <script type="module" >
-        // 应用test.json
+        // 引用test.json  数据源   测试多库操作
         import {pajax} from "../../tools/util.js"  
         // console.log(pajax);  
         // pajax({
@@ -23,24 +23,40 @@
         // ).then(
         //     (res)=>{console.log(res);}
         // )  
-    //用asycn await改造以上代码 
-       async function test(){
-           var res1 = await pajax({
-             url:"http://localhost:3000/news" ,
-             data:{author:"tiechui"}           
-           })
-           var res2 = await pajax({
-              url:"http://localhost:3000/comments" ,
-              data:{newsId:res1[0].id}           
-           })
-        //   console.log(res2);
-           return res2 ;
-// 内部代码问题可以用try--catch  捕获
-       }
+// 2 用asycn await改造以上代码 
+//        async function test(){
+//            var res1 = await pajax({
+//              url:"http://localhost:3000/news" ,
+//              data:{author:"tiechui"}           
+//            })
+//            var res2 = await pajax({
+//               url:"http://localhost:3000/comments" ,
+//               data:{newsId:res1[0].id}           
+//            })
+//         //   console.log(res2);
+//            return res2 ;
+// // 内部代码问题可以用try--catch  捕获
+//        }
        
-      test().then(
-         res=>{console.log(res);}
-      )
+//       test().then(
+//          res=>{console.log(res);}
+//       )
+
+// 3 用fetch async await 实现以上功能
+
+   async function test1(){
+            var author = "tiechui"  
+      var res1 = await fetch(`http://localhost:3000/news?author=${author}`)
+                 .then(res=>res.json())
+      var res2 = await fetch(`http://localhost:3000/comments?newsId=${res1[0].id}`)  
+                       .then(res=>res.json())                   
+    //    console.log(res2);
+      return res2
+    }       
+    
+    test1().then(res=>{
+            console.log(res);
+        }); 
 
     </script>
 </body>
