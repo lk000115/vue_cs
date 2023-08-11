@@ -14,9 +14,9 @@
       <!-- 把标签属性和VUE数据绑定  v-bind -->
       <a v-bind:href="vuelink"  target="_blank">here</a>   
       <img v-bind:src="scr_img" alt="">
-      <input v-bind:disabled="isInputDisabled"   type="text">
-      <p v-if="val  < 10">第一个P标签</p>
-      <p v-else-if="val > 10 && val < 20">第二个P标签 </p>
+      <input v-bind:disabled="isInputDisabled"  placeholder="请输入"  type="text">
+      <p v-if="val  < 10" >第一个P标签</p>
+      <p v-else-if="val > 10 && val < 20" >第二个P标签 </p>
       <p v-else>第三个P标签</p>
       <ul>
         <!-- 遍历数组 -->
