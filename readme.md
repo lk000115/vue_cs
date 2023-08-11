@@ -86,3 +86,5 @@
   - 用preview on webserver  代替  live server,
   - application/x-www-form-urlencoded  
   - json-server 请求后端第一页3条数据   ?_page=1&limit=3  
+  - Access-Control-Allow-Origin: *        允许跨域访问,由后端设置   
+  - 跨域访问还可以用jsonp技术解决

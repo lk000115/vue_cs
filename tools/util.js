@@ -78,5 +78,20 @@ function pajax(options){
     return  p
 }
 
+//   获取cookie值函数
+
+function getCookie(key){
+   var str = document.cookie
+   var arr = str.split("; ")
+//    console.log(arr);
+   var obj = {}
+   for(var i=0; i<arr.length;i++){
+       var subArr = arr[i].split("=")
+       obj[subArr[0]] = subArr[1] 
+   } 
+     return  obj[key]
+
+}
+
 
 export{ajax,pajax} ;
