@@ -10,22 +10,30 @@
      .hidden{
         display: none;
      }
+     .active{
+        background-color: red;
+     }
 
 </style>
 <body>
    <div id="box">
-    <!-- 绑定属性   v-bind: 简写 :  -->
+    <!-- 绑定属性   v-bind: 简写 :    -->
     <img v-bind:src="src_img" alt="">
-    <img :src="src_img1" alt="">
-    <div :class="isShow1 ?'':'hidden'">我是显示或隐藏1</div>
+    <img :src="src_img1" alt="属性绑定变量"> 
+    <div :class="isShow1 ?'':'hidden'">我是显示或隐藏1,属性绑定状态值</div>
+    <div :class="classobj">属性放对象</div>
+    <div :class="classArr">属性放数组</div>
     <div v-show = "isShow">我是显示或隐藏</div>
     <div v-if = "isShow">我是创建或删除</div>
+    <!-- v-html可以解析html字符片段 -->
+    <div v-html="myhtml"></div>
     <!-- 绑定按钮  v-on: 简写@ -->
     <button @click="handclick()" type="button">按钮--</button>
     <!-- vue绑定数据列表循环 -->
     <ul>
-        <li v-for="item,index in arr" >
+        <li v-for="item,index in arr" :class="current===index?'active':''"   @click="handck(index)">
             {{item}}------{{index}}
+
         </li>
     </ul>
        
@@ -42,14 +50,27 @@
                   src_img : "../imges/01.jpg" ,
                   src_img1: "../imges/01.jpg",
                   isShow1: true,
-                  isShow:true
+                  isShow:true,
+                  current:0,
+                  myhtml:"<h2>我是带标签的文字</h2></h2>",
+                  classobj:{
+                      aa:true,
+                      bb:true,
+                      cc:false
+                  },
+                  classArr:["aa","bb"]
                   
               }},
             methods: {
                 handclick(){
-                    console.log("我被点击了");
+                    // console.log("我被点击了");
                     this.isShow1 = !this.isShow1
                     this.isShow = !this.isShow
+                    this.classobj.bb = false
+                },
+                handck(x){
+                    console.log(x);
+                    this.current = x;
                 }
             }
 

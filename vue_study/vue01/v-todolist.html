@@ -7,20 +7,42 @@
     <script src="../../js/vue3.js"></script>
 </head>
 <body>
-    
+    <div id="root">
+  <!-- <input type="text" placeholder="请输入"  @input="handleInput"> -->
+  <input type="text" placeholder="请输入" v-model="mytext" >
+  <button @click="handleAdd()"  type="button">add</button>
+  <ul>
+    <li v-for="item,index in datalist">
+      {{item}}
+      <button @click="handleDel(index)">DEL</button>
+    </li>
+  </ul>
 
-
+    </div>
     <script >
      var obj = {
          data(){
             return {
-
+               mytext:"",
+               datalist:[]
 
             }},
 
          methods:{
+            handleAdd(){
+                // console.log("我点击了");
+                this.datalist.push(this.mytext);
+                this.mytext = ""
+            },
+            handleDel(index){
+              //  console.log(index);
+               this.datalist.splice(index,1)
+            }
 
-
+            // handleInput(evt){
+            //     console.log(evt.target.value);
+                
+            // }
 
          }            
 
