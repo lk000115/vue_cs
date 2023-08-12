@@ -6,11 +6,29 @@
     <title>Document</title>
     <script src="../js/vue3.js"></script>
 </head>
+<style>
+     .hidden{
+        display: none;
+     }
+
+</style>
 <body>
    <div id="box">
- 
-    {{name}}
-    
+    <!-- 绑定属性   v-bind: 简写 :  -->
+    <img v-bind:src="src_img" alt="">
+    <img :src="src_img1" alt="">
+    <div :class="isShow1 ?'':'hidden'">我是显示或隐藏1</div>
+    <div v-show = "isShow">我是显示或隐藏</div>
+    <div v-if = "isShow">我是创建或删除</div>
+    <!-- 绑定按钮  v-on: 简写@ -->
+    <button @click="handclick()" type="button">按钮--</button>
+    <!-- vue绑定数据列表循环 -->
+    <ul>
+        <li v-for="item,index in arr" >
+            {{item}}------{{index}}
+        </li>
+    </ul>
+       
 
    </div>
 
@@ -19,15 +37,25 @@
          var obj = {
             data(){
               return {
-
-                  name: "acaca"
+                  name: "acaca",
+                  arr:["aa","bb","cc"],
+                  src_img : "../imges/01.jpg" ,
+                  src_img1: "../imges/01.jpg",
+                  isShow1: true,
+                  isShow:true
                   
-              }}
+              }},
+            methods: {
+                handclick(){
+                    console.log("我被点击了");
+                    this.isShow1 = !this.isShow1
+                    this.isShow = !this.isShow
+                }
+            }
+
             }        
 
-         Vue.createApp(obj).mount("#box");
-
-     
+            var app = Vue.createApp(obj).mount("#box");
 
 
     </script>
