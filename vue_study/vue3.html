@@ -23,8 +23,9 @@
     <div :class="isShow1 ?'':'hidden'">我是显示或隐藏1,属性绑定状态值</div>
     <div :class="classobj">属性放对象</div>
     <div :class="classArr">属性放数组</div>
-    <div v-show = "isShow">我是显示或隐藏</div>
-    <div v-if = "isShow">我是创建或删除</div>
+    <div :style="styleobj">绑定属性样式</div>
+    <div v-show = "isShow">条件渲染---我是显示或隐藏</div>
+    <div v-if = "isShow">条件渲染---我是创建或删除</div>
     <!-- v-html可以解析html字符片段 -->
     <div v-html="myhtml"></div>
     <!-- 绑定按钮  v-on: 简写@ -->
@@ -58,7 +59,10 @@
                       bb:true,
                       cc:false
                   },
-                  classArr:["aa","bb"]
+                  classArr:["aa","bb"],
+                  styleobj:{
+                    backgroundColor:"red"
+                  }
                   
               }},
             methods: {
