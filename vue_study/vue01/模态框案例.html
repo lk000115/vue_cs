@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框案例</title>
+    <script src="../../js/vue3.js"></script>
+</head>
+ <style>
+   #center{
+       width: 300px;
+       height: 200px;
+       margin-top: 100px;
+       background-color: azure;
+   }
+
+
+ </style>
+
+<body>
+    <div id="box">
+        <button @click="isShow=!isShow">模态框</button>
+        <div id="overlay" v-show="isShow"  @click="isShow=false">
+            <div id="center" @click.stop >
+                 用户名：<input type="text">
+                 <button>登录</button> 
+            </div>
+        </div>
+    </div>
+
+    <script >
+      var obj = {
+          data(){
+              return{
+                isShow:false 
+
+              }
+          },
+          methods:{
+
+
+
+
+          }  
+
+         
+      } 
+
+ 
+     Vue.createApp(obj).mount("#box")      
+
+
+
+    </script>
+</body>
+</html>

@@ -28,8 +28,10 @@
     <div v-if = "isShow">条件渲染---我是创建或删除</div>
     <!-- v-html可以解析html字符片段 -->
     <div v-html="myhtml"></div>
-    <!-- 绑定按钮  v-on: 简写@ -->
-    <button @click="handclick()" type="button">按钮--</button>
+    <!-- 绑定按钮  v-on: 简写@      带括号的方法体，加一个带$符号的参数传递事件对象                -->
+    <button @click="handclick($event)" type="button">按钮--</button>
+    <!-- 绑定按钮  v-on: 简写@      不带括号的方法体会把事件对象窗体给函数           -->
+    <button @click="handclick1" type="button">按钮--</button>
     <!-- vue绑定数据列表循环 -->
     <ul>
         <li v-for="item,index in arr" :class="current===index?'active':''"   @click="handck(index)">
@@ -37,8 +39,16 @@
 
         </li>
     </ul>
-       
-
+    <!-- 事件修饰符   .stop阻止1事件冒泡  .prevent阻止默认行为  .self修饰的事件只能自己触发   -->
+      <ul @click="handleUIclick">
+        <li @click.stop="handclick2">
+            111
+        </li>
+      </ul> 
+      <!-- dbclick 执行一次后isOnce设为false,后面的函数不在执行，&&逻辑与运算符前面为假后面代码就不会执行 -->
+      <button @click="isOnce && dbclick()">用表达式是按钮只执行一次</button>
+      <!--原生的js需要判断回车键的keycode键值来决定执行相应的代码，vue只需加上.enter等按键的别名即可  -->
+       <input type="text" placeholder="sds" @keyup.enter="handlekeyup">
    </div>
 
 
@@ -62,20 +72,34 @@
                   classArr:["aa","bb"],
                   styleobj:{
                     backgroundColor:"red"
-                  }
+                  },
+                  isOnce:true
                   
               }},
             methods: {
-                handclick(){
-                    // console.log("我被点击了");
+                handclick(e){
+                    // console.log("我被点击了") 主动传递事件对象 ;
                     this.isShow1 = !this.isShow1
                     this.isShow = !this.isShow
                     this.classobj.bb = false
+                    console.log(e);
                 },
                 handck(x){
                     console.log(x);
                     this.current = x;
+                },
+                handclick1(evt){
+                    //不带括号的方法传递事件对象evt 
+                    console.log(evt);
+                },
+                dbclick(){
+                    console.log("db");
+                    this.isOnce = false
+                },
+                handlekeyup(){
+                    console.log("敲了回车键");
                 }
+
             }
 
             }        

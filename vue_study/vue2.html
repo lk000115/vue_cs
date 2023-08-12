@@ -26,7 +26,7 @@
       <div v-for="m in moives">{{m.c}} ----{{m.name}}    </div>
 
       <button v-on:click="grt('您点击了我')">{{msg}} </button>
-      <!-- 按钮上添加事件修饰符，限制事件只触发一次 -->
+      <!-- 按钮上添加事件修饰符 .once，限制事件只触发一次 -->
       <button v-on:click.once="addOne">Add 1</button> <p> {{ counter }} </p>
        <!--双向数据绑定  -->
       <input type="text" v-model="message" placeholder="请输入数据">双向数据绑定</input> 
