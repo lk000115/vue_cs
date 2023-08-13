@@ -59,6 +59,15 @@
            <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="篮球">篮球
            <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="乒乓球">乒乓球
        </div>
+       <div>
+            <h3>选择器    {{selected}}</h3>
+          <select name="" id=""  title="dd" v-model="selected" >
+               <option >全部订单</option>
+               <option >已完成</option>
+               <option >已取消</option>
+               <option >已付款</option>
+          </select> 
+       </div>
 
    </div>
 
@@ -87,9 +96,8 @@
                   isOnce:true,
                   mytext:"",
                   isChecked:true,
-                  favlist:[]
-
-                  
+                  favlist:[],
+                  selected:"" 
               }},
             methods: {
                 handclick(e){
