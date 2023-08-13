@@ -33,7 +33,7 @@
                     <span>全选/全不选</span>
                 </div>
             </li>
-            <li v-for="item in datalist "  :key="item.id">
+            <li v-for="(item,index) in datalist "  :key="item.id">
                 <div>
                     <input type="checkbox" v-model="checklist" :value="item">
                 </div>
@@ -50,7 +50,7 @@
                     <button @click="item.number++" :disabled="item.number===item.limit">+</button>
                 </div>
                  <div>
-                    <button>删除</button>
+                    <button @click="handledel(index)">删除</button>
                  </div> 
             </li>
             <li>
@@ -101,7 +101,10 @@
                 //   } 
                 //   return total
                 return  this.checklist.reduce((total,item)=>total+item.price*item.number,0)
-               } 
+               } ,
+               handledel(index){
+                  console.log(index);
+               }
 
 
             }   
