@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <script src="../../js/vue3.js"></script>
+</head>
+<style>
+
+    li{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid lightgray;
+    }
+    li image{
+        width: 10px;
+        height: 10px;
+
+    }
+
+
+</style>
+
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <div>
+                    <input type="checkbox" name="" id="">
+                    <span>全选/全不选</span>
+                </div>
+            </li>
+            <li v-for="item in datalist "  :key="item.id">
+                <div>
+                    <input type="checkbox" v-model="checklist" :value="item">
+                </div>
+                <div>
+                    <image class="" :src="item.poster" />
+                </div>
+                <div>
+                    {{item.price}}
+                    {{item.title}}      
+                </div>
+                <div>
+                    <button @click="item.number--"  :disabled="item.number===1">-</button>
+                    {{item.number}}
+                    <button @click="item.number++" :disabled="item.number===item.limit">+</button>
+                </div>
+                 <div>
+                    <button>删除</button>
+                 </div> 
+            </li>
+            <li>
+                <div>总金额：{{sum()}}</div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+
+       var obj = {
+           data(){
+               return {
+                  checklist:[],
+                  datalist:[
+                     {
+                        id:1,
+                        title:"商品1" ,
+                        price:10 ,
+                        number:1,
+                        poster:"../../imges/01.jpg",
+                        limit:5
+                     },
+                     {
+                        id:2,
+                        title:"商品2" ,
+                        price:20 ,
+                        number:2,
+                        poster:"../../imges/02.jpg",
+                        limit:5
+                     },
+                     {
+                        id:3,
+                        title:"商品3" ,
+                        price:30 ,
+                        number:1,
+                        poster:"../../imges/03.jpg",
+                        limit:5
+                     },                     
+                  ]          
+
+               }},
+            methods:{
+               sum(){
+                //   var total = 0 ;
+                //   for(var i = 0 ; i<this.checklist.length ; i++){
+                //       total += this.checklist[i].price*this.checklist[i].number;  
+                //   } 
+                //   return total
+                return  this.checklist.reduce((total,item)=>total+item.price*item.number,0)
+               } 
+
+
+            }   
+       } 
+
+       Vue.createApp(obj).mount("#box") 
+
+
+
+
+    </script>
+</body>
+</html>
