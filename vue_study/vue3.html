@@ -49,6 +49,17 @@
       <button @click="isOnce && dbclick()">用表达式是按钮只执行一次</button>
       <!--原生的js需要判断回车键的keycode键值来决定执行相应的代码，vue只需加上.enter等按键的别名即可  -->
        <input type="text" placeholder="sds" @keyup.enter="handlekeyup">
+       <!--双向绑定 v-model绑定的状态mytext和 输入框的value双向绑定了-->
+       <div>
+           <textarea   v-model="mytext"   placeholder="aa" id="" cols="30" rows="5"></textarea>
+           <p>双向绑定的多方文本数据{{mytext}}</p>
+           <input type="checkbox" placeholder="复选框" id="" v-model="isChecked"  >复选框  绑定一个
+           <p>下面绑定多个复选框，关联数组</p>
+           <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="足球">足球
+           <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="篮球">篮球
+           <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="乒乓球">乒乓球
+       </div>
+
    </div>
 
 
@@ -73,7 +84,11 @@
                   styleobj:{
                     backgroundColor:"red"
                   },
-                  isOnce:true
+                  isOnce:true,
+                  mytext:"",
+                  isChecked:true,
+                  favlist:[]
+
                   
               }},
             methods: {
