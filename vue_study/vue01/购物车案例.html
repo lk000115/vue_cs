@@ -15,9 +15,9 @@
         padding: 10px;
         border: 1px solid lightgray;
     }
-    li image{
-        width: 10px;
-        height: 10px;
+    .img {
+        width: 80px;
+        height: 80px;
 
     }
 
@@ -29,42 +29,47 @@
         <ul>
             <li>
                 <div>
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="" id="" v-model="isChecked" @change="chk">
                     <span>全选/全不选</span>
                 </div>
             </li>
-            <li v-for="(item,index) in datalist "  :key="item.id">
-                <div>
-                    <input type="checkbox" v-model="checklist" :value="item">
-                </div>
-                <div>
-                    <image class="" :src="item.poster" />
-                </div>
-                <div>
-                    {{item.price}}
-                    {{item.title}}      
-                </div>
-                <div>
-                    <button @click="item.number--"  :disabled="item.number===1">-</button>
-                    {{item.number}}
-                    <button @click="item.number++" :disabled="item.number===item.limit">+</button>
-                </div>
-                 <div>
-                    <button @click="handledel(index)">删除</button>
-                 </div> 
-            </li>
+            <template v-if="datalist.length">
+                <li v-for="(item,index) in datalist "  :key="item.id">
+                    <div>
+                        <input type="checkbox" v-model="checklist" :value="item" @change="handleItemChange">
+                    </div>
+                    <div class="">
+                        <image class="img" :src="item.poster"  />
+                    </div>
+                    <div>
+                        {{item.price}}
+                        {{item.title}}      
+                    </div>
+                    <div>
+                        <button @click="item.number--"  :disabled="item.number===1">-</button>
+                        {{item.number}}
+                        <button @click="item.number++" :disabled="item.number===item.limit">+</button>
+                    </div>
+                     <div>
+                        <button @click="handledel(index,item.id)">删除</button>
+                     </div> 
+                </li>
+            </template>
+
+            <li v-else>购物车空空如也!!</li>
             <li>
                 <div>总金额：{{sum()}}</div>
             </li>
         </ul>
+        <p>  bd : {{checklist}} </p>
     </div>
-
     <script>
 
        var obj = {
            data(){
                return {
                   checklist:[],
+                  isChecked:false,
                   datalist:[
                      {
                         id:1,
@@ -102,10 +107,29 @@
                 //   return total
                 return  this.checklist.reduce((total,item)=>total+item.price*item.number,0)
                } ,
-               handledel(index){
-                  console.log(index);
-               }
+               handledel(index,id){
+                //   console.log(index);
 
+                  this.datalist.splice(index,1);
+                  this.checklist = this.checklist.filter(item=>item.id!==id);
+                  this.handleItemChange();
+               },
+               chk(){
+                //   this.isChecked = !this.isChecked;
+                //   if(!this.isChecked){
+                //      this.checklist = []; 
+                //   }else{
+                //     this.checklist = this.datalist
+                //   }
+                this.checklist = this.isChecked?this.datalist:[]
+               },
+               handleItemChange(){
+                if(this.datalist.length===0){
+                    this.isChecked = false
+                    return 
+                  }
+                this.isChecked = this.checklist.length===this.datalist.length
+               } 
 
             }   
        } 

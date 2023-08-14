@@ -30,7 +30,7 @@
 
  <!--  方法3 用表达式实现，vue中{{}}里面和绑定的变量里面都可以放表达式        -->
  <div id="root">
-    <input type="text" v-model="mytext" @input="handleInput">
+    <input type="text" v-model="mytext" >
     <ul>
         <li v-for="item in filt()" :key="item">
                 {{item}}
