@@ -13,6 +13,10 @@
      .active{
         background-color: red;
      }
+     img{
+        width: 50px;
+        height: 50px;
+     }
 
 </style>
 <body>
@@ -68,7 +72,19 @@
                <option >已付款</option>
           </select> 
        </div>
-
+       <div>
+        <p>---表单修饰符------------</p>
+        <p>.lazy 懒惰模式的双向绑定</p>   
+        <p>.number 把输入框的内容转换为数字格式</p> 
+        <p>trim 去掉首位空格</p>
+        <input  type="text"  placeholder="sd"  v-model.lazy="mytext2"  >
+        {{mytext2}} 
+       </div>
+       <div>
+        <p>计算属性,属性myname是通过计算后得到的值</p>
+        <input type="text" name="" id="" v-model="myname">
+        {{myComputedName}}
+       </div>
    </div>
 
 
@@ -77,6 +93,7 @@
             data(){
               return {
                   name: "acaca",
+                  myname:"like",
                   arr:["aa","bb","cc"],
                   src_img : "../imges/01.jpg" ,
                   src_img1: "../imges/01.jpg",
@@ -95,10 +112,17 @@
                   },
                   isOnce:true,
                   mytext:"",
+                  mytext2:"",
                   isChecked:true,
                   favlist:[],
                   selected:"" 
               }},
+            //   属性计算的结果有缓存
+              computed:{
+                myComputedName(){
+                  return this.myname.substring(0,1).toUpperCase()+this.myname.substring(1)  
+                }
+              },
             methods: {
                 handclick(e){
                     // console.log("我被点击了") 主动传递事件对象 ;
