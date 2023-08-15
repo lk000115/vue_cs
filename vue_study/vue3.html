@@ -64,7 +64,7 @@
            <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="乒乓球">乒乓球
        </div>
        <div>
-            <h3>选择器    {{selected}}</h3>
+            选择器 ---   {{selected}}
           <select name="" id=""  title="dd" v-model="selected" >
                <option >全部订单</option>
                <option >已完成</option>
@@ -85,10 +85,28 @@
         <input type="text" name="" id="" v-model="myname">
         {{myComputedName}}
        </div>
+       <div>
+         <input type="text"  v-model="mywatch">监听---   
+         <p>用watch监听的属性---- {{mywatch}}</p>
+       </div>
+       <div>
+        <p>下拉列表</p>
+        <select  v-model="obj.year">
+              <option >2023</option>
+              <option >2022</option>
+              <option >2021</option> 
+        </select>
+        <select  v-model="obj.month">
+              <option >12</option>
+              <option >11</option>
+              <option >10</option> 
+        </select>      
+       </div>
    </div>
 
 
     <script >
+     
          var obj = {
             data(){
               return {
@@ -115,8 +133,25 @@
                   mytext2:"",
                   isChecked:true,
                   favlist:[],
-                  selected:"" 
+                  selected:"", 
+                  mywatch:"",
+                  obj:{
+                    year:2023,
+                    month:12
+                  }
               }},
+            // 监听属性watch
+              watch:{
+                 mywatch:function(value){
+                    console.log("-----"+value);
+                 },
+               obj:{
+                 handler(value){
+                    console.log(value); 
+                 }, 
+                 deep:true
+               }  
+              },
             //   属性计算的结果有缓存
               computed:{
                 myComputedName(){
@@ -145,6 +180,12 @@
                 },
                 handlekeyup(){
                     console.log("敲了回车键");
+                },
+                handleUIclick(){
+
+                },
+                handclick2(){
+                  
                 }
 
             }

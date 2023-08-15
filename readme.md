@@ -84,7 +84,7 @@
   - nmp i  node-dev  -g       服务器实时刷新 
   - npm i  json-server -g     实时模拟后端api接口   
   - 用preview on webserver  代替  live server,
-  - application/x-www-form-urlencoded  
+  - "content-type": "application/x-www-form-urlencoded"  
   - json-server 请求后端第一页3条数据   ?_page=1&limit=3  
   - Access-Control-Allow-Origin: *        允许跨域访问,由后端设置   
-  - 跨域访问还可以用jsonp技术解决
+  - 跨域访问还可以用jsonp技术解决,(浏览器不同域名下的文件是不能访问,就是跨域限制)

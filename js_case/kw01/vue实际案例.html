@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue请求真实实例</title>
+    <script src="../../js/vue3.js"></script>
+</head>
+<style>
+   li{
+    overflow: hidden;
+    padding: 10px;
+   }
+   li img{
+       width: 100px;
+       height: 100px;
+       float: left;
+   }
+
+</style>
+<body>
+    <div id="box">
+         <button @click="handleClick">发送请求</button>
+       <ul>
+        <li v-for="item in datalist" key="item.id">
+            <img :src="item.img" alt="">
+            <div>{{item.nm}}</div>
+            <div>评分:{{item.mk}}</div>
+            <div>{{item.desc}}</div>
+            <div>{{item.showinfo}}</div>
+        </li>
+       </ul>
+
+    </div>
+    
+    <script>
+
+      var obj = {
+          data(){
+            return {
+               datalist:""
+            }
+          },
+          methods:{
+            handleClick(){
+               fetch("./test_my.json")
+               .then(res=>res.json())
+               .then(res=>{
+                //    console.log(res.data.hot);
+                   this.datalist = res.data.hot
+               }
+               )
+         
+            }   
+
+          }
+           
+
+
+      }  
+
+      var app = Vue.createApp(obj).mount("#box")
+
+    </script>
+
+</body>
+</html>
