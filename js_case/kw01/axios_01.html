@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios请求</title>
+    <script src="../../js/axios.min.js"></script>
+    <script src="../../js/vue3.js"></script>
+</head>
+<body>
+    <div id="box">
+        <button @click="handleClick">axios-get请求</button>
+        <button @click="handlePost">axios-post请求</button>
+        <button @click="handledel">delete请求</button>
+        <ul>
+            <li v-for="item in datalist">
+                <div>{{item.name}}----{{item.password}}</div>
+
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script>
+ // console.log(axios);
+    
+   var obj = {
+      data(){
+         return {
+           datalist:[]
+ 
+         } 
+      },
+      methods:{
+        handleClick(){
+          axios.get("http://localhost:3000/users").then(res=>{
+            // console.log(res.data);
+            this.datalist = res.data
+          })
+        },
+        handlePost(){
+            axios.post("http://localhost:3000/users",{
+                name:"wanwu",
+                password:9877
+            }).then(res=>{
+            console.log(res.data);
+          })         
+        },
+        handledel(){
+            axios.delete("http://localhost:3000/users/7").then(res=>{
+            console.log(res.data);
+          })            
+        } 
+      }    
+
+   }
+
+        
+   var app = Vue.createApp(obj).mount("#box")
+    </script>
+ 
+</body>
+</html>
