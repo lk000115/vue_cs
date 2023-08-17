@@ -10,6 +10,17 @@
 import Navbar from "./Navbar.vue";
 import Tabar from "./Tabar.vue";
 export default{
+   data(){
+     return{
+        navTitle:"首页"
+     }
+   }, 
+   provide(){
+      return{
+         navTitle:this.navTitle,
+         app: this
+      } 
+   },
    components:{
       Navbar,
       Tabar

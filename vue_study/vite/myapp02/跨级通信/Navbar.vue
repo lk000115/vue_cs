@@ -1,7 +1,7 @@
 <template>
 <div>
    <button>返回</button>
-   <button>标题</button>
+   <span>{{app.navTitle}}</span>
    <button>我的</button>
 
 </div>
@@ -9,7 +9,7 @@
 </template>
 <script>
 export default{
-
+   inject:["app","navTitle"]
 }
 </script>
 
