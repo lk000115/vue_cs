@@ -92,3 +92,8 @@
   - vue 插件 volar
   - vite安装  npm create vite@latest  运行 ：  npm run dev
   - v-bind="$attrs"  加上此属性直接把父节点的属性透传过来
+  - 父节点传子节点,通过在父节点上设置自定义属性,子节点设置prop属性接受
+  - 子节点传父节点,通过父节点设置自定义事件,子节点执行this.$emit('event',this.data)把数据传递给父节点
+  - $refs父组件强权,父组件的子组件引用上设置ref属性.父组件函数中用this.$refs可以直接拿到相应子组件的实例
+  - 在子组件中通过$parent访问父组件,$root访问根组件
+  - 

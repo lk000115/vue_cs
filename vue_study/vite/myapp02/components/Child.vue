@@ -6,6 +6,9 @@
       </p> 
       <button v-show="right">按钮</button>
       <button @click="handleclick">子传父--通过自定义事件</button>
+      <div>
+          <button @click="handleclick02">子组件拿父组件数据</button>
+      </div>
    </div>
 </template>
 
@@ -36,6 +39,9 @@ export default{
 // 通过触发执行父节点的自定义事件event,把子节点的数据传递给父节点 
         handleclick(){
             this.$emit('event',this.datalist,this.fname)  
+        },
+        handleclick02(){
+            console.log(this.$parent.name);
         }
     }
 
