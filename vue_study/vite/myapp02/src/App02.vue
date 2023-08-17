@@ -26,8 +26,8 @@ export default{
 
    },
    methods:{
-      handleEvent(data){
-         console.log("自定义事件",data);
+      handleEvent(a,b){
+         console.log("自定义事件",a,b);
       }
    }
 }

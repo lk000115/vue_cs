@@ -28,13 +28,14 @@ export default{
     },
     data(){
         return{
-           datalist:[1,2,3]
+           datalist:[1,2,3],
+           fname:"sd"
         }
     },
     methods:{
 // 通过触发执行父节点的自定义事件event,把子节点的数据传递给父节点 
         handleclick(){
-            this.$emit('event',this.datalist)  
+            this.$emit('event',this.datalist,this.fname)  
         }
     }
 
