@@ -22,7 +22,8 @@ import List from  '../src/List.vue';
 export default{
    data(){
      return{
-        navTitle:"首页"
+        navTitle:"首页",
+        which:"Home"
      }
    }, 
    provide(){
