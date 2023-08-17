@@ -12,8 +12,8 @@ export default{
    inject:["app","navTitle"],
    methods:{
       handelclick(){
-         console.log(app.navTitle);
-         // app.navTitle = this.item
+         // console.log(this.app.navTitle);
+         this.app.navTitle = this.item
       }
    }
 
