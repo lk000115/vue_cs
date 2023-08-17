@@ -96,4 +96,5 @@
   - 子节点传父节点,通过父节点设置自定义事件,子节点执行this.$emit('event',this.data)把数据传递给父节点
   - $refs父组件强权,父组件的子组件引用上设置ref属性.父组件函数中用this.$refs可以直接拿到相应子组件的实例
   - 在子组件中通过$parent访问父组件,$root访问根组件
-  - 跨级通信: provide inject
+  - 跨级通信: 父组件提供---provide    子组件注入---inject
+  - 订阅发布
