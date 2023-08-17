@@ -89,3 +89,4 @@
   - Access-Control-Allow-Origin: *        允许跨域访问,由后端设置   
   - 跨域访问还可以用jsonp技术解决,(浏览器不同域名下的文件是不能访问,就是跨域限制)
   - vite安装  npm create vite@latest
+  - vue 插件 volar
