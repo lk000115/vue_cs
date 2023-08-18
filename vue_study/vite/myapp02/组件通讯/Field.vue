@@ -1,7 +1,7 @@
 <template>
 
    <div style="background-color:aquamarine;">
-       <label for="">{{label}}</label>  
+       <label >{{label}}</label>  
        <input :type="type">       
    </div>
 
