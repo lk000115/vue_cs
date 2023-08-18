@@ -9,7 +9,7 @@
 <script>
 export default{
    props:['item'],
-   inject:["app","navTitle"],
+   inject:["app"],
    methods:{
       handelclick(){
          // console.log(this.app.navTitle);

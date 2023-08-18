@@ -16,7 +16,7 @@ export default{
       }
    },  
    mounted(){
-      // 订阅.....
+      // 订阅.....需要tabaritem提供的[首页,列表,我的]三个数据来设置title的值 
       store.subscribe((value)=>{
           console.log("我被触发了",value);
           this.title = value 

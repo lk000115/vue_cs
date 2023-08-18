@@ -9,7 +9,7 @@
 </template>
 <script>
 export default{
-   inject:["app","navTitle"]
+   inject:["app"]
 }
 </script>
 

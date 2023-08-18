@@ -17,7 +17,7 @@ export default{
    }, 
    provide(){
       return{
-         navTitle:this.navTitle,
+         // navTitle:this.navTitle,
          app: this
       } 
    },

@@ -10,7 +10,7 @@
      <Field label="密码" type="password"> </Field>
      <Field label="年龄" type="number"> </Field>
   </div>
-  <p>-父组件在引入的子组件标签上设置ref属性,可以拿到子组件的实例,即可以获取子组件的所有数据----</p>
+  <p>-父组件在引入的子组件(如:Child)标签上设置ref属性,可以拿到子组件的实例,即可以获取子组件的所有数据----</p>
   <div>
      <button @click="handlebtn">父强权取数</button>
      <!-- <input type="text" ref="myinput">   -->
