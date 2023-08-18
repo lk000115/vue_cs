@@ -1,8 +1,8 @@
 <template>
+
    <div style="background-color:aquamarine;">
        <label for="">{{label}}</label>  
-       <input :type="type"> 
-        
+       <input :type="type">       
    </div>
 
 </template>

@@ -1,3 +1,5 @@
+<!--父传子  子传父  父强权  -->
+
 <template>
   <div>
      <Child mytitle="父属性" :myname="name" :myleft="left"  :right="aright"
@@ -16,8 +18,8 @@
 
 
 <script>
-import Child from "../components/Child.vue";
-import Field from "../components/Field.vue"
+import Child from "./Child.vue";
+import Field from "./Field.vue"
 export default{
    components:{
       Child,
