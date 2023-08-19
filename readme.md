@@ -99,4 +99,4 @@
   - 订阅发布-- 建立一个中间js文件，其中存储数组和订阅方法，发布方法，需要数据的组件作为订阅方，把回调函数存入数组，
     提供数据的一方作为发布方，把数据通过发布方法传给回调函数并执行，数据最终显示在订阅方组件上 
   - 组件上的v-model,子组件接受modelValue属性,执行事件updata:modelValue,子组件上用this.$emit("updata:modelValue",target.value)
-  - 异步组件 import {defineAsyncComponent} from vue            
+  - 异步组件 import {defineAsyncComponent} from vue    测试                
