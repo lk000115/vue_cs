@@ -5,4 +5,8 @@
 /vue_study/vite/myapp
 /vue_study/vite/myapp/node_modules
 /vue_study/vite/myapp/.vscode
-
+/vue_study/vite/myapp/vite.config.js
+/vue_study/vite/myapp/package.json
+/vue_study/vite/myapp/package-lock.json
+/vue_study/vite/myapp/index.html
+/vue_study/vite/myapp/.gitignore

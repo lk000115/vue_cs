@@ -100,6 +100,7 @@
     提供数据的一方作为发布方，把数据通过发布方法传给回调函数并执行，数据最终显示在订阅方组件上 
   - 组件上的v-model,子组件接受modelValue属性,执行事件updata:modelValue,子组件上用this.$emit("updata:modelValue",target.value)
   - 异步组件 import {defineAsyncComponent} from vue        
-  - 生命周期  created--->mounted-->updata-dom更新后被调用(所有状态改变都会执行)，$nextTick(()=>{}) : 此回调函数在updata之后执行
+  - 生命周期  created--->mounted-->updated-dom更新后被调用(所有状态改变都会执行)，$nextTick(()=>{}) : 此回调函数在updated之后执行
   - 生命周期销毁 beforeUnmount  unmounted: 组件被卸载-如组件上设置状态，组件被隐藏(v-if  v-show控制的组件卸载或隐藏)都将执行 ，
-    组件卸载后，上面绑定的状态，方法等数据都将被清楚，但是绑定到windows上的方法和属性必须自己手动清除，       
+    组件卸载后，上面绑定的状态，方法等数据都将被清楚，但是绑定到windows上的方法和属性必须自己手动清除，  
+  - 安装轮播组件 npm i swiper --save       
