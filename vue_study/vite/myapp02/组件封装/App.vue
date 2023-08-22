@@ -14,6 +14,10 @@
 </template>
 
 <script>
+// import 'swiper/swiper-bundle.css' ;
+// import {Pagination} from 'swiper' ;
+// import 'swiper/components/pagination.min.css' ;
+// Swiper.use([Pagination])
 // import Swiper bundle with all modules installed
 import Swiper from 'swiper/bundle';
 // import styles bundle
