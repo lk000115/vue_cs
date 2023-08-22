@@ -4,8 +4,8 @@
         :slides-per-view="3" 
         :space-between="50"
         @slideChange="onSlideChange" >
-            <MySwiperItem v-for="data in datalist">
-                {{ data.nm }}
+            <MySwiperItem v-for="data in datalist" key="data.id">
+                <img :src="data.img" alt="" style="width:100%">
             </MySwiperItem>
         </MySwiper>
     </div>
