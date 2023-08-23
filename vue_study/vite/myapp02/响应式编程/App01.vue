@@ -1,5 +1,6 @@
 <!-- 
-响应式编程 计算属性案例---模糊搜索 
+响应式编程 计算属性computed案例---模糊搜索-- 
+计算属性只能监听同步数据的变动,不能监听异步代码,即不能包含异步代码
 -->
 
 <template>
@@ -20,6 +21,7 @@ import {computed,ref}  from 'vue'
 
 function useSearch(datalist){
     const mytext = ref("")
+// computed里面的代码只能放同步代码    
     const computedList = computed(()=>
             datalist.value.filter(item=>item.includes(mytext.value))
         ) 
