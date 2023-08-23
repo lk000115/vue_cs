@@ -1,3 +1,7 @@
+<!-- 
+响应式编程 基础语法 
+-->
+
 <template>
     <button @click="handleclk">按钮</button>
     <div  ref="mydiv">
