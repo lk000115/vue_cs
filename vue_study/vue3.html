@@ -1,201 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/vue3.js"></script>
-</head>
-<style>
-     .hidden{
-        display: none;
-     }
-     .active{
-        background-color: red;
-     }
-     img{
-        width: 50px;
-        height: 50px;
-     }
-
-</style>
-<body>
-   <div id="box">
-    <!-- 绑定属性   v-bind: 简写 :    -->
-    <img v-bind:src="src_img" alt="">
-    <img :src="src_img1" alt="属性绑定变量"> 
-    <div :class="isShow1 ?'':'hidden'">我是显示或隐藏1,属性绑定状态值</div>
-    <div :class="classobj">属性放对象</div>
-    <div :class="classArr">属性放数组</div>
-    <div :style="styleobj">绑定属性样式</div>
-    <div v-show = "isShow">条件渲染---我是显示或隐藏</div>
-    <div v-if = "isShow">条件渲染---我是创建或删除</div>
-    <!-- v-html可以解析html字符片段 -->
-    <div v-html="myhtml"></div>
-    <!-- 绑定按钮  v-on: 简写@      带括号的方法体，加一个带$符号的参数传递事件对象                -->
-    <button @click="handclick($event)" type="button">按钮--</button>
-    <!-- 绑定按钮  v-on: 简写@      不带括号的方法体会把事件对象窗体给函数           -->
-    <button @click="handclick1" type="button">按钮--</button>
-    <!-- vue绑定数据列表循环 -->
-    <ul>
-        <li v-for="item,index in arr" :class="current===index?'active':''"   @click="handck(index)">
-            {{item}}------{{index}}
-
+  </head>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .active {
+      background-color: red;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+  <body>
+    <div id="box">
+      <!-- 绑定属性   v-bind: 简写 :    -->
+      <img v-bind:src="src_img" alt="" />
+      <img :src="src_img1" alt="属性绑定变量" />
+      <div :class="isShow1 ?'':'hidden'">我是显示或隐藏1,属性绑定状态值</div>
+      <div :class="classobj">属性放对象</div>
+      <div :class="classArr">属性放数组</div>
+      <div :style="styleobj">绑定属性样式</div>
+      <div v-show="isShow">条件渲染---我是显示或隐藏</div>
+      <div v-if="isShow">条件渲染---我是创建或删除</div>
+      <!-- v-html可以解析html字符片段 -->
+      <div v-html="myhtml"></div>
+      <!-- 绑定按钮  v-on: 简写@      带括号的方法体，加一个带$符号的参数传递事件对象                -->
+      <button @click="handclick($event)" type="button">按钮--</button>
+      <!-- 绑定按钮  v-on: 简写@      不带括号的方法体会把事件对象窗体给函数           -->
+      <button @click="handclick1" type="button">按钮--</button>
+      <!-- vue绑定数据列表循环 -->
+      <ul>
+        <li
+          v-for="item,index in arr"
+          :class="current===index?'active':''"
+          @click="handck(index)"
+        >
+          {{item}}------{{index}}
         </li>
-    </ul>
-    <!-- 事件修饰符   .stop阻止1事件冒泡  .prevent阻止默认行为  .self修饰的事件只能自己触发   -->
+      </ul>
+      <!-- 事件修饰符   .stop阻止1事件冒泡  .prevent阻止默认行为  .self修饰的事件只能自己触发   -->
       <ul @click="handleUIclick">
-        <li @click.stop="handclick2">
-            111
-        </li>
-      </ul> 
+        <li @click.stop="handclick2">111</li>
+      </ul>
       <!-- dbclick 执行一次后isOnce设为false,后面的函数不在执行，&&逻辑与运算符前面为假后面代码就不会执行 -->
       <button @click="isOnce && dbclick()">用表达式是按钮只执行一次</button>
       <!--原生的js需要判断回车键的keycode键值来决定执行相应的代码，vue只需加上.enter等按键的别名即可  -->
-       <input type="text" placeholder="sds" @keyup.enter="handlekeyup">
-       <!--双向绑定 v-model绑定的状态mytext和 输入框的value双向绑定了-->
-       <div>
-           <textarea   v-model="mytext"   placeholder="aa" id="" cols="30" rows="5"></textarea>
-           <p>双向绑定的多方文本数据{{mytext}}</p>
-           <input type="checkbox" placeholder="复选框" id="" v-model="isChecked"  >复选框  绑定一个
-           <p>下面绑定多个复选框，关联数组</p>
-           <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="足球">足球
-           <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="篮球">篮球
-           <input type="checkbox" name="" id="" placeholder="复选框" v-model="favlist" value="乒乓球">乒乓球
-       </div>
-       <div>
-            选择器 ---   {{selected}}
-          <select name="" id=""  title="dd" v-model="selected" >
-               <option >全部订单</option>
-               <option >已完成</option>
-               <option >已取消</option>
-               <option >已付款</option>
-          </select> 
-       </div>
-       <div>
-        <p>---表单修饰符------------</p>
-        <p>.lazy 懒惰模式的双向绑定</p>   
-        <p>.number 把输入框的内容转换为数字格式</p> 
-        <p>trim 去掉首位空格</p>
-        <input  type="text"  placeholder="sd"  v-model.lazy="mytext2"  >
-        {{mytext2}} 
-       </div>
-       <div>
-        <p>计算属性,属性myname是通过计算后得到的值</p>
-        <input type="text" name="" id="" v-model="myname">
-        {{myComputedName}}
-       </div>
-       <div>
-         <input type="text"  v-model="mywatch">监听---   
-         <p>用watch监听的属性---- {{mywatch}}</p>
-       </div>
-       <div>
-        <p>下拉列表</p>
-        <select  v-model="obj.year">
-              <option >2023</option>
-              <option >2022</option>
-              <option >2021</option> 
+      <input type="text" placeholder="sds" @keyup.enter="handlekeyup" />
+      <!--双向绑定 v-model绑定的状态mytext和 输入框的value双向绑定了-->
+      <div>
+        <textarea
+          v-model="mytext"
+          placeholder="aa"
+          id=""
+          cols="30"
+          rows="5"
+        ></textarea>
+        <p>双向绑定的多方文本数据{{mytext}}</p>
+        <input
+          type="checkbox"
+          placeholder="复选框"
+          id=""
+          v-model="isChecked"
+        />复选框 绑定一个
+        <p>下面绑定多个复选框，关联数组</p>
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          placeholder="复选框"
+          v-model="favlist"
+          value="足球"
+        />足球
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          placeholder="复选框"
+          v-model="favlist"
+          value="篮球"
+        />篮球
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          placeholder="复选框"
+          v-model="favlist"
+          value="乒乓球"
+        />乒乓球
+      </div>
+      <div>
+        选择器 --- {{selected}}
+        <select name="" id="" title="dd" v-model="selected">
+          <option>全部订单</option>
+          <option>已完成</option>
+          <option>已取消</option>
+          <option>已付款</option>
         </select>
-        <select  v-model="obj.month">
-              <option >12</option>
-              <option >11</option>
-              <option >10</option> 
-        </select>      
-       </div>
-   </div>
+      </div>
+      <div>
+        <p>---表单修饰符------------</p>
+        <p>.lazy 懒惰模式的双向绑定</p>
+        <p>.number 把输入框的内容转换为数字格式</p>
+        <p>trim 去掉首位空格</p>
+        <input type="text" placeholder="sd" v-model.lazy="mytext2" />
+        {{mytext2}}
+      </div>
+      <div>
+        <p>计算属性,属性myname是通过计算后得到的值</p>
+        <input type="text" name="" id="" v-model="myname" />
+        {{myComputedName}}
+      </div>
+      <div>
+        <input type="text" v-model="mywatch" />监听---
+        <p>用watch监听的属性---- {{mywatch}}</p>
+      </div>
+      <div>
+        <p>下拉列表</p>
+        <select v-model="obj.year">
+          <option>2023</option>
+          <option>2022</option>
+          <option>2021</option>
+        </select>
+        <select v-model="obj.month">
+          <option>12</option>
+          <option>11</option>
+          <option>10</option>
+        </select>
+      </div>
+    </div>
 
+    <script>
+      var obj = {
+        data() {
+          return {
+            name: "acaca",
+            myname: "like",
+            arr: ["aa", "bb", "cc"],
+            src_img: "../imges/01.jpg",
+            src_img1: "../imges/02.jpg",
+            isShow1: true,
+            isShow: true,
+            current: 0,
+            myhtml: "<h2>我是带标签的文字</h2></h2>",
+            classobj: {
+              aa: true,
+              bb: true,
+              cc: false,
+            },
+            classArr: ["aa", "bb"],
+            styleobj: {
+              backgroundColor: "red",
+            },
+            isOnce: true,
+            mytext: "",
+            mytext2: "",
+            isChecked: true,
+            favlist: [],
+            selected: "",
+            mywatch: "",
+            obj: {
+              year: 2023,
+              month: 12,
+            },
+          };
+        },
+        // 监听属性watch
+        watch: {
+          mywatch: (value)=>{
+            console.log("-----" + value);
+          },
+          obj: {
+            handler(value) {
+              console.log(value);
+            },
+            deep: true,
+          },
+        },
+        //   属性计算的结果有缓存
+        computed: {
+          myComputedName() {
+            return (
+              this.myname.substring(0, 1).toUpperCase() +
+              this.myname.substring(1)
+            );
+          },
+        },
+        methods: {
+          handclick(e) {
+            // console.log("我被点击了") 主动传递事件对象 ;
+            this.isShow1 = !this.isShow1;
+            this.isShow = !this.isShow;
+            this.classobj.bb = false;
+            console.log(e);
+          },
+          handck(x) {
+            console.log(x);
+            this.current = x;
+          },
+          handclick1(evt) {
+            //不带括号的方法传递事件对象evt
+            console.log(evt);
+          },
+          dbclick() {
+            console.log("db");
+            this.isOnce = false;
+          },
+          handlekeyup() {
+            console.log("敲了回车键");
+          },
+          handleUIclick() {},
+          handclick2() {},
+        },
+      };
 
-    <script >
-     
-         var obj = {
-            data(){
-              return {
-                  name: "acaca",
-                  myname:"like",
-                  arr:["aa","bb","cc"],
-                  src_img : "../imges/01.jpg" ,
-                  src_img1: "../imges/02.jpg",
-                  isShow1: true,
-                  isShow:true,
-                  current:0,
-                  myhtml:"<h2>我是带标签的文字</h2></h2>",
-                  classobj:{
-                      aa:true,
-                      bb:true,
-                      cc:false
-                  },
-                  classArr:["aa","bb"],
-                  styleobj:{
-                    backgroundColor:"red"
-                  },
-                  isOnce:true,
-                  mytext:"",
-                  mytext2:"",
-                  isChecked:true,
-                  favlist:[],
-                  selected:"", 
-                  mywatch:"",
-                  obj:{
-                    year:2023,
-                    month:12
-                  }
-              }},
-            // 监听属性watch
-              watch:{
-                 mywatch:function(value){
-                    console.log("-----"+value);
-                 },
-               obj:{
-                 handler(value){
-                    console.log(value); 
-                 }, 
-                 deep:true
-               }  
-              },
-            //   属性计算的结果有缓存
-              computed:{
-                myComputedName(){
-                  return this.myname.substring(0,1).toUpperCase()+this.myname.substring(1)  
-                }
-              },
-            methods: {
-                handclick(e){
-                    // console.log("我被点击了") 主动传递事件对象 ;
-                    this.isShow1 = !this.isShow1
-                    this.isShow = !this.isShow
-                    this.classobj.bb = false
-                    console.log(e);
-                },
-                handck(x){
-                    console.log(x);
-                    this.current = x;
-                },
-                handclick1(evt){
-                    //不带括号的方法传递事件对象evt 
-                    console.log(evt);
-                },
-                dbclick(){
-                    console.log("db");
-                    this.isOnce = false
-                },
-                handlekeyup(){
-                    console.log("敲了回车键");
-                },
-                handleUIclick(){
-
-                },
-                handclick2(){
-                  
-                }
-
-            }
-
-            }        
-
-            var app = Vue.createApp(obj).mount("#box");
-
-
+      var app = Vue.createApp(obj).mount("#box");
     </script>
-    
-</body>
+  </body>
 </html>

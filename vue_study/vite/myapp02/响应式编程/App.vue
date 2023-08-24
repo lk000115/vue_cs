@@ -26,6 +26,7 @@
             const computedName = computed(()=>obj.name)
        // 2 ref 初始化响应式对象 
             const nameref = ref("zhansan")
+           //把传给子组件的属性定义为响应式对象 
             const mydiv = ref(null)
             function handleclk() {
                 console.log(mydiv.value);

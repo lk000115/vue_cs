@@ -80,6 +80,7 @@
   /*
    以上两个语句解决COMMONJS导入规范报错问题
    */
+### 语法要点   
 <!-- json-server  test.json  --watch       运行程序 -->
   - nmp i  node-dev  -g       服务器实时刷新 
   - npm i  json-server -g     实时模拟后端api接口   
@@ -103,4 +104,108 @@
   - 生命周期  created--->mounted-->updated-dom更新后被调用(所有状态改变都会执行)，$nextTick(()=>{}) : 此回调函数在updated之后执行
   - 生命周期销毁 beforeUnmount  unmounted: 组件被卸载-如组件上设置状态，组件被隐藏(v-if  v-show控制的组件卸载或隐藏)都将执行 ，
     组件卸载后，上面绑定的状态，方法等数据都将被清除，但是绑定到windows上的方法和属性必须自己手动清除，  
-  - 安装轮播组件 npm i swiper --save       
+  - 安装轮播组件 npm i swiper --save 
+
+### vue几种写法
+
+ ```  
+// 1 html页面
+   var obj ={
+        //定义数据
+        data(){
+           return{
+             aa:"da1",
+             bb:"da2"
+           }          
+        },
+        //定义函数 
+        methods:{
+           a (){},
+           b (){}
+        } 
+        //数据监听 
+        watch:{
+          被监听数据1: function(){"监听处理函数1"},  //可以写匿名函数  
+          被监听数据2: ()=>{"监听处理函数2"},        //可以写箭头函数 
+        }
+       //计算属性
+       computed:{
+         computedName(){
+            return 结果
+         }
+       },  
+   }
+   //再把以上定义的数据挂载到DOM主节点上 
+   var app = Vue.createApp(obj).mount("#box");
+-----------------------------------------------------------------------------
+// 2 选项式 API (Options API)--vue2.0   组件写法1
+  //模块导入
+  import * from 'vue'
+  //组件数据导出 
+   export default{
+    //组件注册
+      components:{
+         组件1,
+         组件2 
+      },
+     //数据定义    
+      data(){
+        return{
+          aa:"da1",
+          bb:"da2"         
+        }
+      },
+     //方法定义 
+      methods:{
+       a (){},
+       b (){}        
+     },
+    //数据监听 
+     watch:{
+      被监听数据1: function(){"监听处理函数1"},  //可以写匿名函数  
+      被监听数据2: ()=>{"监听处理函数2"},        //可以写箭头函数 
+    }
+    //计算属性
+     computed:{
+      computedName(){
+         return 结果
+       }
+   },      
+   //如果父组件设置了自定义属性传值给子组件,子组件需设置props接受
+     props:{
+        属性1:{
+          type:String
+          default:"aa"
+        },
+        属性2:{
+          type:Number
+          default:12 
+        }
+     } 
+
+  } 
+
+-----------------------------------------------------------------------------
+// 3 组合式 API (Composition API)--vue3.0 vca  组件写法2 
+  //模块导入
+  import {ref,reactive,computed} from 'vue'
+  export default{
+   //组件注册
+     components:{
+       组件1,
+       组件2
+     } 
+     setup(){
+    //      
+       
+        return{
+
+        }
+     }   
+
+
+  } 
+
+ ```  
+
+
