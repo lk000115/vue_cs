@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 // import './style.css'
 // import App from './App.vue'
-import App from  '../../myapp02/响应式编程/App-属性.vue'  
+import App from  '../../myapp02/vue3语法糖/App-语法糖.vue'  
 
 var app = createApp(App)
 

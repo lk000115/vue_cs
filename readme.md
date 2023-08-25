@@ -125,7 +125,7 @@
         } 
         //数据监听 
         watch:{
-          被监听数据1: function(){"监听处理函数1"},  //可以写匿名函数  
+          被监听数据1: function(value){"监听处理函数1",value},  //可以写匿名函数,value是被监听数据变动的值  
           被监听数据2: ()=>{"监听处理函数2"},        //可以写箭头函数 
         }
        //计算属性
@@ -188,23 +188,84 @@
 -----------------------------------------------------------------------------
 // 3 组合式 API (Composition API)--vue3.0 vca  组件写法2 
   //模块导入
-  import {ref,reactive,computed} from 'vue'
+  import {ref,reactive,computed,watch} from 'vue'
   export default{
    //组件注册
      components:{
        组件1,
        组件2
-     } 
-     setup(){
-    //      
-       
+     },
+     props:['title'] 
+     setup({title},{emmit}){   //子组件设置两个参数接受父组件传递的属性和自定义事件
+    //初始化响应式对象      
+       //方法1:
+       const obj = reactive({
+          name:"aa",
+          age: 18
+       })
+       //方法2
+       const mytest = ref("aa")
+    //方法定义
+       const handleclk = ()=>{函数体} 
+    //计算属性
+       const computedName = computed(()=>obj.name)    
+    //监听属性
+       watch(data,(value)=>{value})
+    //函数定义
+       const handleClk = ()=>{
+          console.log(obj.name,mytest.value)
+          emmit("event","传递给父组件的数据")
+      }
         return{
-
+           name,
+           age,
+           mytest,
+           computedName,
+           hanleClk
         }
      }   
-
-
   } 
+
+
+------------------------------------------------------------
+// vue3.0的语法糖
+<script  setup>    //直接把setup写在标签上,代码中不在需要写return语句
+   import {ref,reactive,computed,watch} from 'vue'
+   import 组件  from  '组件'  //组件导入只需要此一条语句,不需要注册
+     import {defineProps,defineEmits} from 'vue'   //引入父传子,子传父的处理函数
+  //定义响应式数据
+   const name = ref("aa")
+   //定义父组件传来的自定义属性接受变量,并对值做校验
+   const props = defineProps({
+      mytitle:{
+        type:String,
+        default:"初始值"
+      }
+   })
+   //定义父组件传来的自定义事件处理函数,通过执行此函数可以传值给父组件
+   const emit = defineEmits(["event1","event2"])
+   //组件状态提供--在父件上
+   provide("myname",name)
+   //组件状态注入--在子组件上
+   const myname = inject("myname")
+  //计算属性
+   const computedName = computed(()=>name.value)    
+  //监听属性
+   watch(data,(value)=>{value})
+  //函数定义
+   const handleClk = ()=>{
+       console.log(name.value)
+       emmit("event","传递给父组件的数据")  //父组件上自定义事件event,子组件激活此事件并传递数据
+       console.log(myname.value)
+       emit("event1","来自子组件的问候")    //子传父--触发父组件的自定义事件,并把值传给父组件  
+       console.log(props.mytitle)        //父传子的值 
+
+    }
+
+
+
+
+</script>
 
  ```  
 
