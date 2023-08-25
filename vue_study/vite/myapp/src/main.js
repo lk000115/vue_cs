@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 // import './style.css'
 // import App from './App.vue'
-import App from  '../../myapp02/插槽/App-插槽.vue'  
+import router from '../VueRoute/router'
+import App from  '../../myapp/VueRoute/App.vue'  
 
 var app = createApp(App)
 
@@ -14,5 +15,5 @@ var app = createApp(App)
 //      console.log("当前节点插入到父节点时调用",el);  
 //    }
 // })
-
+app.use(router)
 app.mount('#app')
