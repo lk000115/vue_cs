@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import axios  from '../../myapp/node_modules/axios/lib/axios'
+import axios  from 'axios'
 
 export default{
    data(){

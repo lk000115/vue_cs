@@ -246,7 +246,7 @@
    const emit = defineEmits(["event1","event2"])
    //组件状态提供--在父件上
    provide("myname",name)
-   //组件状态注入--在子组件上
+   //组件状态注入--在子组件上,此数据可以双向修改
    const myname = inject("myname")
   //计算属性
    const computedName = computed(()=>name.value)    
