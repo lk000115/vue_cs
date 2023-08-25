@@ -22,8 +22,8 @@
     })
     const emit = defineEmits(["event"])
     const handleClk = () => {
-    //    myname.vaule = 'sdsd'     子组件不能修改父组件提供的属性  
-       console.log('点击了子组件按钮',props.mytitle);
+       myname.value = "dddd"    
+       console.log('点击了子组件按钮----',myname.value);
     //    props.mytitle = "cscscscscs"    子组件不能修改父组件的自定义属性
        emit("event","来自子组件的问候")
     }

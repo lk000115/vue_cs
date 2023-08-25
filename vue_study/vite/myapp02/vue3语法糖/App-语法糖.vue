@@ -19,7 +19,8 @@
  
     const title = ref("tt")
     const name = ref('aaaa')
-    provide("myname",name)
+    const myname = ref("as")
+    provide("myname",myname)
     const handleClick = ()=>{
         name.value = 'zhansan'
     }
