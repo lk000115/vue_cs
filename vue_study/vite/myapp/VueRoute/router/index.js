@@ -12,6 +12,7 @@ const routes = [
    },
    {  
     path: '/Center', 
+    alias:"/wode",    //路由别名
     component: Center
    },
    {  
