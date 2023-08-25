@@ -14,8 +14,16 @@
             <li>
                 <router-link to="/center" active-class="kerwin">我的</router-link>
             </li> -->
-      <!-- router-link 自定义写法 -->
- 
+      <!-- router-link  定制为指定节点 -->
+           <router-link custom to="/films" v-slot="{isActive,navigate}">
+                <li :class="isActive?'kerwin':'' " @click="navigate">电影</li>
+           </router-link>
+           <router-link custom to="/cinemas" v-slot="{isActive,navigate}">
+                <li :class="isActive?'kerwin':'' " @click="navigate">影院</li>
+           </router-link>
+           <router-link custom to="/center" v-slot="{isActive,navigate}">
+                <li :class="isActive?'kerwin':'' " @click="navigate">我的</li>
+           </router-link>
 
 
         </ul>
