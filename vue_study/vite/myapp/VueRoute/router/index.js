@@ -4,6 +4,7 @@ import Center from '../views/Center.vue'
 import Cinemas from '../views/Cinemas.vue'
 import Notfound from '../views/Notfound.vue'
 
+
 const routes = [
    {  
     path: '/Films', 
