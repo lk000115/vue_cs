@@ -1,10 +1,11 @@
-import{createRouter,createWebHashHistory} from 'vue-router'
+import{createRouter,createWebHashHistory,createWebHistory} from 'vue-router'
 import Films from '../views/Films.vue'
 import Center from '../views/Center.vue'
 import Cinemas from '../views/Cinemas.vue'
 import Notfound from '../views/Notfound.vue'
 import Nowplaying from '../views/films/Nowplaying.vue'
 import Comingsoon from '../views/films/Comingsoon.vue'
+import Detail from '../views/Detail.vue'
 const routes = [
    {  
     path: '/Films', 
@@ -34,6 +35,10 @@ const routes = [
     path: '/Cinemas', 
     component: Cinemas
    },
+   {  
+    path: '/detail/:myid',   //动态路由配置
+    component: Detail
+   },   
    {
     path: '/', 
     redirect: '/Films'
@@ -47,9 +52,19 @@ const routes = [
 
 
 const router = createRouter({
-     history:createWebHashHistory(),
+    //  history:createWebHashHistory(),
+     history:createWebHistory(),
      routes,
 })
+
+//全局路由拦截
+// router.beforeEach((to, from, next) => {
+//     let isAuthenticated = localStorage.getItem("token")
+//     if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+//     else next()
+//   })
+
+
 
 export default router
 

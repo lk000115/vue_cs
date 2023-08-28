@@ -2,7 +2,9 @@
 
     <div>
         <ul>
-            <li></li>
+            <li v-for="item in datalist" :key="item.filmId" @click="handleClick(item.filmId)">
+                 {{ item.name }}
+            </li>
         </ul>
     </div>
 </template>
@@ -28,6 +30,12 @@ export default{
         console.log(this.datalist);
 
 
+     },
+     methods:{
+        handleClick(id){
+            // console.log(id);
+            this.$router.push(`/detail/${id}`)
+        }
      }
      
 

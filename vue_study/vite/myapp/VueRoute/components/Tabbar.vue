@@ -42,7 +42,8 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
-
+    background: white;
+    z-index: 100;
     ul {
         display: flex;
 
