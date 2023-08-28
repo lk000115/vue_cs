@@ -4,7 +4,6 @@
 
  <template>
     <div>
-        根组件
         <!-- 插槽 路由容器 -->
         <router-view></router-view>
         <Tabbar></Tabbar>

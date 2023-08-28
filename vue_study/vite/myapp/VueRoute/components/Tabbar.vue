@@ -15,6 +15,7 @@
                 <router-link to="/center" active-class="kerwin">我的</router-link>
             </li> -->
       <!-- router-link  定制为指定节点 -->
+      <!-- 路由组件router-link利用插槽技术,提供isActive和navigate属性,父组件可以直接用这两个属性 -->
            <router-link custom to="/films" v-slot="{isActive,navigate}">
                 <li :class="isActive?'kerwin':'' " @click="navigate">电影</li>
            </router-link>
