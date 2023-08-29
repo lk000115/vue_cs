@@ -35,6 +35,12 @@ export default{
         handleClick(id){
             // console.log(id);
             this.$router.push(`/detail/${id}`)
+
+            //另一种传参方式
+            //this.$router.push({
+        //      path:"/detail" ,
+        //      qurey:{myid:id }         
+         //   })
         }
      }
      

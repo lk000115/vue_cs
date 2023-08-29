@@ -6,6 +6,8 @@ import Notfound from '../views/Notfound.vue'
 import Nowplaying from '../views/films/Nowplaying.vue'
 import Comingsoon from '../views/films/Comingsoon.vue'
 import Detail from '../views/Detail.vue'
+import Login from '../views/Login.vue'
+
 const routes = [
    {  
     path: '/Films', 
@@ -40,6 +42,11 @@ const routes = [
     component: Detail
    },   
    {
+    name:"Login",  
+    path: '/Login',   //动态路由配置
+    component: Login
+   },    
+   {
     path: '/', 
     redirect: '/Films'
    },
@@ -57,12 +64,13 @@ const router = createRouter({
      routes,
 })
 
-//全局路由拦截
-// router.beforeEach((to, from, next) => {
-//     let isAuthenticated = localStorage.getItem("token")
-//     if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
-//     else next()
-//   })
+//全局路由拦截,某个页面没有授权就跳转到login页面
+router.beforeEach((to, from, next) => {
+    let isAuthenticated = localStorage.getItem("token")
+    // console.log(to.fullPath);
+    if (to.name !== 'Login' && !isAuthenticated && to.fullPath ==='/center') next({ name: 'Login' })
+    else next()
+  })
 
 
 
