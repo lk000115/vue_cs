@@ -124,9 +124,9 @@
       <div>
         <p>下拉列表</p>
         <select v-model="obj.year">
-          <option>2023</option>
-          <option>2022</option>
-          <option>2021</option>
+          <option :value="2023">2023</option>
+          <option :value="2022">2022</option>
+          <option :value="2021">2021</option>
         </select>
         <select v-model="obj.month">
           <option>12</option>
