@@ -13,10 +13,12 @@
 <script>
 export default{
     beforeMount(){
-        this.$store.state.isTabbarShow = false
+        // this.$store.state.isTabbarShow = false
+        this.$store.commit("hideTabbar")
     },
     beforeUnmount(){
-        this.$store.state.isTabbarShow = true  
+        // this.$store.state.isTabbarShow = true
+        this.$store.commit("showTabbar") 
     },
     mounted(){
     //接受上一个页面传来的参数,并从后台取数  

@@ -10,6 +10,15 @@ const store = createStore({
         return{
            isTabbarShow:true
         }  
+    },
+    //增加状态修改的监视
+    mutations:{
+        showTabbar(state){
+            state.isTabbarShow = true
+        },
+        hideTabbar(state){
+            state.isTabbarShow = false
+        }
     }
 
 })
