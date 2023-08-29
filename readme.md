@@ -262,11 +262,13 @@
 
     }
 
-
-
-
 </script>
 
- ```  
+ ```
+
+### vue-router
+- 安装 npm install vue-router@4 --save
+ ### vuex
+- 安装 npm i vuex@next --save  
 
 

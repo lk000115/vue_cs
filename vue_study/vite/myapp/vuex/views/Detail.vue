@@ -12,6 +12,12 @@
 
 <script>
 export default{
+    beforeMount(){
+        this.$store.state.isTabbarShow = false
+    },
+    beforeUnmount(){
+        this.$store.state.isTabbarShow = true  
+    },
     mounted(){
     //接受上一个页面传来的参数,并从后台取数  
        console.log("从后台取数 ",this.$route.params.myid);

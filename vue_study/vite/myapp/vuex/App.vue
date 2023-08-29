@@ -2,33 +2,42 @@
     vue如有测试
  -->
 
- <template>
+<template>
     <div>
         <!-- 插槽 路由容器 -->
         <router-view></router-view>
-        <Tabbar></Tabbar>
+        <Tabbar v-show="$store.state.isTabbarShow"></Tabbar>
     </div>
- </template>
+</template>
 
- <script setup>
- import Films from './views/Films.vue'
- import Center from './views/Center.vue'
- import Cinemas from './views/Cinemas.vue'
- import Tabbar  from './components/Tabbar.vue'
+<script >
+    import Tabbar from './components/Tabbar.vue'
+    export default {
+        components: {
+            Tabbar,
+        },
+        mounted(){
+            console.log("----",this.$store.state.isTabbarShow);
+        },
+        data() {
+            return {
 
+
+            }
+        }
+
+    }
 
 </script>
 
 
 <style>
-*{
-   margin: 0;
-   padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
-ul{
+
+ul {
     list-style: none;
 }
-
-
-
 </style>
