@@ -7,6 +7,11 @@ import App from  '../../myapp/pinia/App.vue'
 import {createPinia} from 'pinia'
 const pinia = createPinia()
 
+// 1. 引入你需要的组件
+import { Button } from 'vant';
+// 2. 引入组件样式
+import 'vant/lib/index.css';
+
 var app = createApp(App)
 
 // createApp(App).mount('#app')
@@ -21,4 +26,5 @@ var app = createApp(App)
 app.use(router)   //注册路由插件
 // app.use(store)    //注册vuex插件
 app.use(pinia)    //注册pinia插件
+app.use(Button);  
 app.mount('#app')

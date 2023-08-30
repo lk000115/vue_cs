@@ -277,3 +277,6 @@
 - 辅助函数--更方便的拿store中的数据  
 ### Pinia  替代vuex
 - npm i pinia 
+  
+### vant 4  手机端组件库-适用vue3  
+- npm i vant
