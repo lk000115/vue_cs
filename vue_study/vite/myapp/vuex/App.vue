@@ -6,18 +6,28 @@
     <div>
         <!-- 插槽 路由容器 -->
         <router-view></router-view>
-        <Tabbar v-show="$store.state.isTabbarShow"></Tabbar>
+        <!-- this.$store.state.isTabbarShow -->
+        <Tabbar v-show="isTabbarShow"></Tabbar>
     </div>
 </template>
 
 <script >
     import Tabbar from './components/Tabbar.vue'
+    import {mapState} from 'vuex'   //导入辅助函数
     export default {
         components: {
             Tabbar,
         },
         mounted(){
             console.log("----",this.$store.state.isTabbarShow);
+        },
+        // computed:{
+        //     isTabbarShow(){
+        //         return this.$store.state.isTabbarShow
+        //     }
+        // },
+        computed:{
+           ...mapState(["isTabbarShow"]),
         },
         data() {
             return {

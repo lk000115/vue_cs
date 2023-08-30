@@ -15,19 +15,20 @@ const store = createStore({
     },
     //增加状态修改的监视
     mutations:{
-        showTabbar(state){
-            state.isTabbarShow = true
-        },
-        hideTabbar(state){
-            state.isTabbarShow = false
-        },
-        // changeTabbar(state,payload){
-        //     state.isTabbarShow = payload
+        // showTabbar(state){
+        //     state.isTabbarShow = true
         // },
+        // hideTabbar(state){
+        //     state.isTabbarShow = false
+        // },
+        changeTabbar(state,payload){
+            state.isTabbarShow = payload
+        },
         changeCinemaList(state,payload){
              state.cinemalist = payload
         }
     },
+    //数据缓存,先取数,在提交给mutaotion统一存储
     actions:{
         getCinemaList(store){
             // console.log("ajax");
@@ -42,6 +43,15 @@ const store = createStore({
                 store.commit("changeCinemaList",res.data.data.cinemas)
             })
         }
+    },
+    //数据二次加工,相当于计算属性
+    getters:{
+        filterCinemaList(state){
+            return ((type)=>{
+               return state.cinemalist.filter(item => item.eTicketFlag === type)
+            })
+        }
+
     }
 
 

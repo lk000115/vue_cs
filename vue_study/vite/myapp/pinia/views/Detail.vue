@@ -11,18 +11,7 @@
 </template>
 
 <script>
-import{mapMutations} from 'vuex'    //辅助函数可以把store中的Mutations函数映射为本地函数
 export default{
-    beforeMount(){
-        // this.$store.state.isTabbarShow = false
-        // this.$store.commit("changeTabbar",false)
-        this.changeTabbar(false)
-    },
-    beforeUnmount(){
-        // this.$store.state.isTabbarShow = true
-        // this.$store.commit("changeTabbar",true) 
-        this.changeTabbar(true)
-    },
     mounted(){
     //接受上一个页面传来的参数,并从后台取数  
        console.log("从后台取数 ",this.$route.params.myid);
@@ -31,7 +20,6 @@ export default{
    //console.log("从后台取数 ",this.$route.qurey.myid);
     },
     methods:{
-        ...mapMutations(["changeTabbar"]),
         handleBack(){
             this.$router.back()
         },

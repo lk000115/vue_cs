@@ -268,7 +268,11 @@
 
 ### vue-router
 - 安装 npm install vue-router@4 --save
- ### vuex
+ ### vuex        vuex与vca不兼容
 - 安装 npm i vuex@next --save  
-
-
+- 设定一个index.js文件同一存放各组件共享的状态和缓存数据,即共享存储store
+- 更改状态:组件提交更改申请 this.$store.commit("函数名-fn"),store中的mutations根据申请执行fn来修改状态
+- 数据缓存,组件提交获取数据申请--this.$store.dispatch("getList"),store中的actions把异步数据取回.并向
+  mutations发数据提交,组件在获取数据前先检查store中是否有数据,如果有就可以直接从缓存取数
+- 辅助函数--更方便的拿store中的数据  
+### Pinia  替代vuex
