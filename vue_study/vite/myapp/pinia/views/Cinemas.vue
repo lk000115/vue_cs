@@ -5,8 +5,6 @@
             <option :value="0">前台兑换</option>
         </select>
         <ul>
-            <!-- 传参给store,通过store.getters计算把结果返回 -->
-            <!-- $store.getters.filterCinemaList  被mapGetters映射了-->
             <li v-for="data in store.cinemaList" :key="data.cinemaid">
                 {{ data.name }}
             </li>
