@@ -65,12 +65,12 @@ const router = createRouter({
 })
 
 //全局路由拦截,某个页面没有授权就跳转到login页面
-router.beforeEach((to, from, next) => {
-    let isAuthenticated = localStorage.getItem("token")
-    // console.log(to.fullPath);
-    if (to.name !== 'Login' && !isAuthenticated && to.fullPath ==='/center') next({ name: 'Login' })
-    else next()
-  })
+// router.beforeEach((to, from, next) => {
+//     let isAuthenticated = localStorage.getItem("token")
+//     // console.log(to.fullPath);
+//     if (to.name !== 'Login' && !isAuthenticated && to.fullPath ==='/center') next({ name: 'Login' })
+//     else next()
+//   })
 
 
 

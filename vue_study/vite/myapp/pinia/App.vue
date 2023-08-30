@@ -6,16 +6,18 @@
     <div>
         <!-- 插槽 路由容器 -->
         <router-view></router-view>
-        <Tabbar></Tabbar>
+        <Tabbar v-show="store.isTabbarShow"></Tabbar>
     </div>
  </template>
 
  <script setup>
- import Films from './views/Films.vue'
- import Center from './views/Center.vue'
- import Cinemas from './views/Cinemas.vue'
- import Tabbar  from './components/Tabbar.vue'
+//  import Films from './views/Films.vue'
+//  import Center from './views/Center.vue'
+//  import Cinemas from './views/Cinemas.vue'
+ import Tabbar  from './components/Tabbar.vue' ;
+ import useTabbarStore from './store/tabbarStore';
 
+const store = useTabbarStore()
 
 </script>
 

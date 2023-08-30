@@ -27,7 +27,7 @@ export default{
            }  
         })
         this.datalist = res.data.data.films 
-        console.log(this.datalist);
+        // console.log(this.datalist);
 
 
      },

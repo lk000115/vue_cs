@@ -276,3 +276,4 @@
   mutations发数据提交,组件在获取数据前先检查store中是否有数据,如果有就可以直接从缓存取数
 - 辅助函数--更方便的拿store中的数据  
 ### Pinia  替代vuex
+- npm i pinia 

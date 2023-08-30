@@ -1,9 +1,11 @@
 import { createApp } from 'vue'
 // import './style.css'
 // import App from './App.vue'
-import router from '../vuex/router'
-import App from  '../../myapp/vuex/App.vue' 
-import store from '../vuex/store/index' 
+import router from '../pinia/router'
+import App from  '../../myapp/pinia/App.vue' 
+// import store from '../vuex/store/index' 
+import {createPinia} from 'pinia'
+const pinia = createPinia()
 
 var app = createApp(App)
 
@@ -17,5 +19,6 @@ var app = createApp(App)
 //    }
 // })
 app.use(router)   //注册路由插件
-app.use(store)    //注册vuex插件
+// app.use(store)    //注册vuex插件
+app.use(pinia)    //注册pinia插件
 app.mount('#app')
