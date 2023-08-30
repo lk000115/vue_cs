@@ -20,7 +20,8 @@ import {useCinemaStore} from '../store/cinemaStore'
 const store = useCinemaStore()
 onMounted(()=>{
     if (store.cinemaList.length === 0) {
-                store.getCinemaList()
+                console.log("aaaa");
+                // store.getCinemaList()
             } else {
                 console.log(store.cinemalist);
             }   

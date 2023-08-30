@@ -11,7 +11,7 @@ const useCinemaStore = defineStore('cinema',{
         }
       },
       actions:{
-            getCinemaList(){
+            getCinemaList: ()=>{
                 // console.log("ajax");
                 axios({
                     url:"https://m.maizuo.com/gateway?cityId=110100&ticketFlag=1&k=699006",
