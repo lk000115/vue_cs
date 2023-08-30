@@ -1,20 +1,23 @@
+/**
+ * setup风格
+ * 
+ * 
+ */
+
 import {defineStore} from 'pinia'
+import {ref} from 'vue'
 
+const useTabbarStore = defineStore("tabbar",()=>{
 
-const useTabbarStore = defineStore("tabbar",{
-
-     state:()=>{
-         return {
-
-            isTabbarShow:true
-         }
-
-     },
-     actions:{
-        change(value){
-            this.isTabbarShow = value
-        }  
-     }
+    const isTabbarShow  = ref(true)
+    
+    const change = (value)=>{
+        isTabbarShow.value = value
+    }
+    return {
+        isTabbarShow,
+        change 
+    }
 
 })
 
