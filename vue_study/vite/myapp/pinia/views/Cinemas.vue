@@ -5,7 +5,7 @@
             <option :value="0">前台兑换</option>
         </select>
         <ul>
-            <li v-for="data in store.cinemaList" :key="data.cinemaid">
+            <li v-for="data in store.filterCinemaList(type)" :key="data.cinemaid">
                 {{ data.name }}
             </li>
         </ul>
@@ -13,15 +13,16 @@
 </template>
 
 <script setup>
-import {onMounted} from 'vue'
-import {useCinemaStore} from '../store/cinemaStore'
+import {onMounted,ref} from 'vue'
+import useCinemaStore from '../store/cinemaStore'
+const type = ref(1)
 const store = useCinemaStore()
 onMounted(()=>{
     if (store.cinemaList.length === 0) {
-                console.log("aaaa");
-                // store.getCinemaList()
+                // console.log("aaaa");
+                store.getCinemaList()
             } else {
-                console.log(store.cinemalist);
+                // console.log(store.cinemaList);
             }   
 
 })
