@@ -1,15 +1,17 @@
 <template>
 
     <div>
-        <ul>
-            <li v-for="item in datalist" :key="item.filmId" @click="handleClick(item.filmId)">
+        <van-list>
+            <van-cell v-for="item in datalist" :key="item.filmId" @click="handleClick(item.filmId)">
+                <img :src="item.poster" alt="" style="width:100px;float: left;">
                  {{ item.name }}
-            </li>
-        </ul>
+            </van-cell>
+        </van-list>
     </div>
 </template>
 
 <script setup>
+import {List as vanList ,Cell as vanCell} from 'vant'
 import axios from 'axios' ;
 import {ref, onMounted} from 'vue'
 import { useRoute, useRouter } from "vue-router";
@@ -27,7 +29,7 @@ onMounted(  async ()=>{
         })
 
         datalist.value = res.data.data.films 
-
+        // console.log(res.data.data.films);   
 
 })
 

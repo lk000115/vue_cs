@@ -8,7 +8,7 @@ import {createPinia} from 'pinia'
 const pinia = createPinia()
 
 // 1. 引入你需要的组件
-import { Button } from 'vant';
+import { Button,Swipe, SwipeItem } from 'vant';
 // 2. 引入组件样式
 import 'vant/lib/index.css';
 
@@ -27,4 +27,6 @@ app.use(router)   //注册路由插件
 // app.use(store)    //注册vuex插件
 app.use(pinia)    //注册pinia插件
 app.use(Button);  
+app.use(Swipe);
+app.use(SwipeItem);
 app.mount('#app')
