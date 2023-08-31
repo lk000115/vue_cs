@@ -230,7 +230,7 @@
 ------------------------------------------------------------
 // vue3.0的语法糖
 <script  setup>    //直接把setup写在标签上,代码中不在需要写return语句
-   import {ref,reactive,computed,watch} from 'vue'
+   import {ref,reactive,computed,watch,onmounted} from 'vue'
    import 组件  from  '组件'  //组件导入只需要此一条语句,不需要注册
      import {defineProps,defineEmits} from 'vue'   //引入父传子,子传父的处理函数
   //定义响应式数据
@@ -261,6 +261,10 @@
        console.log(props.mytitle)        //父传子的值 
 
     }
+    // 生命周期,组件加载 onMounted
+    onMounted(()=>{
+        console.log("处理代码")
+    })
 
 </script>
 

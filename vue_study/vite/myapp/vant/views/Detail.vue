@@ -10,11 +10,11 @@
 </template>
 
 <script setup>
-    import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
+    import { onMounted, onBeforeMount, onBeforeUnmount,watch } from "vue";
     import useTabbarStore from "../store/tabbarStore";
     import { useRoute, useRouter, onBeforeRouteUpdate } from "vue-router";
-    const route = useRoute();
-    const router = useRouter();
+    const route = useRoute();           //代替this.$route  得到传过来的params.myid
+    const router = useRouter();         //代替 this.$router,
     const store = useTabbarStore();
 
     onBeforeMount(() => {
@@ -27,12 +27,23 @@
 
     });
     const handleClick = () => {
-        // console.log(router);
         router.push(`/detail/6789`);
+        // console.log(route.params);
     };
     const handleBack = () => {
         router.back();
     };
+    watch(()=>route.params,()=>{
+        console.log("监听ID变动");
+    })
+    //加载页面从后台取数
+    onMounted(()=>{
+        console.log("从后台取数 ",route.params.myid);
+    })
+    //路由更新的回调
+    onBeforeRouteUpdate((to,from)=>{
+        console.log("路由更新到了--- ",to.params.myid)
+    })
     //     mounted(){
     //     //接受上一个页面传来的参数,并从后台取数
     //     //    console.log("从后台取数 ",this.$route.params.myid);
