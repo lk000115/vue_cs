@@ -7,6 +7,7 @@ import Nowplaying from '../views/films/Nowplaying.vue'
 import Comingsoon from '../views/films/Comingsoon.vue'
 import Detail from '../views/Detail.vue'
 import Login from '../views/Login.vue'
+import City from '../views/City.vue'
 
 const routes = [
    {  
@@ -32,6 +33,10 @@ const routes = [
     path: '/Center', 
     alias:"/wode",    //路由别名
     component: Center
+   },
+   {  
+    path: '/City', 
+    component: City
    },
    {  
     path: '/Cinemas', 

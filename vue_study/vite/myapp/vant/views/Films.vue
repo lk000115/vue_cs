@@ -8,8 +8,8 @@
             <van-swipe-item>4</van-swipe-item>
         </van-swipe>
 
-        <div class="sd">
-            <ul class="fm">
+        <div >
+            <ul class="header">
                 <router-link custom to="/films/nowplaying" v-slot="{ isActive, navigate }">
                     <li @click="navigate">
                         <span :class="isActive ? 'kerwin' : ''">正在热映</span>
@@ -33,7 +33,7 @@
 </script>
 
 <style scoped lang="scss">
-.sd .fm {
+ .header {
     display: flex;
     height: 50px;
     line-height: 50px;

@@ -81,3 +81,13 @@ export default{
 
 }
 </script> -->
+
+<style  scoped  lang="scss">
+
+:deep(.van-cell__value){
+   text-align: left; 
+}
+
+
+
+</style>
