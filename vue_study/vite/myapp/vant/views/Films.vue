@@ -39,7 +39,7 @@
     line-height: 50px;
     text-align: center;
     position: sticky;
-    top: 0;
+    top:0px;
     z-index: 100;
     background: white;
     li {
