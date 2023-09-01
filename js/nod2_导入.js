@@ -9,6 +9,6 @@
 // console.log(fn.add(1,2));
 
 // es6的引入
-import {add,text} from './nod1.js'  ;
+import {add,text} from './nod1_导出.js'  ;
 
 text();
