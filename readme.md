@@ -285,3 +285,4 @@
 ### vant 4  手机端组件库-适用vue3  
 - npm i vant
 - 样式加上 :deep(被作用选择器)-----深度选择器
+- lodash库，js工具库   npm i lodash
