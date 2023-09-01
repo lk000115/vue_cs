@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="box">
         <!-- <div style="height: 100px;line-height: 100px;text-align: center;background-color: #009f5d;">轮播</div> -->
         <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
             <van-swipe-item>1</van-swipe-item>
@@ -33,6 +33,9 @@
 </script>
 
 <style scoped lang="scss">
+.box{
+    overflow: scroll;
+}
  .header {
     display: flex;
     height: 50px;

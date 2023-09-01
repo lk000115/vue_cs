@@ -82,8 +82,8 @@
    */
 ### 语法要点   
 <!-- json-server  test.json  --watch       运行程序 -->
-  - nmp i  node-dev  -g       服务器实时刷新 
-  - npm i  json-server -g     实时模拟后端api接口   
+  - nmp i  node-dev  -g   全局安装    服务器实时刷新, 
+  - npm i  json-server -g  全局安装   实时模拟后端api接口   
   - 用preview on webserver  代替  live server,
   - "content-type": "application/x-www-form-urlencoded"  
   - json-server 请求后端第一页3条数据   ?_page=1&limit=3  
@@ -285,4 +285,8 @@
 ### vant 4  手机端组件库-适用vue3  
 - npm i vant
 - 样式加上 :deep(被作用选择器)-----深度选择器
+<<<<<<< HEAD
 - lodash库，js工具库   npm i lodash
+=======
+- lodash  js工具库   npm i lodash   import _ from 'lodash'
+>>>>>>> c4611eb7535abb1ee671aab879fa3634f857a444
