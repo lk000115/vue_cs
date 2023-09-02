@@ -285,8 +285,5 @@
 ### vant 4  手机端组件库-适用vue3  
 - npm i vant
 - 样式加上 :deep(被作用选择器)-----深度选择器
-<<<<<<< HEAD
 - lodash库，js工具库   npm i lodash
-=======
 - lodash  js工具库   npm i lodash   import _ from 'lodash'
->>>>>>> c4611eb7535abb1ee671aab879fa3634f857a444
