@@ -1,12 +1,19 @@
 <template>
   <div>
-    city
+    <van-index-bar>
+      <van-index-anchor index="A" />
+      <van-cell title="文本" />
+      <van-cell title="文本" />
+      <van-cell title="文本" />
+
+    </van-index-bar>
   </div>
 </template>
 
 <script setup>
 import axios from 'axios'
 import { onMounted } from 'vue'
+import { IndexBar as vanIndexBar, IndexAnchor as vanIndexAnchor, Cell as vanCell } from 'vant';
 onMounted(async () => {
   var res = await axios({
     url: "https://m.maizuo.com/gateway?k=1669812",
@@ -30,7 +37,8 @@ const filterCity = (cities) => {
       list: cities.filter(item => item.pinyin.substring(0, 1).toUpperCase() === letterArr[i])
     })
   }
-  newCities = newCities.filter(item=>item.list.length)
+  // 筛选出item.list.length != 0 的数组 
+  newCities = newCities.filter(item => item.list.length)
   console.log(newCities);
 
 }
