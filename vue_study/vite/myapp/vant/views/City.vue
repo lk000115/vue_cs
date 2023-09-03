@@ -3,7 +3,7 @@
     <van-index-bar  :index-list="indexList">
       <div v-for="item in dataList" :key="item.type">
         <van-index-anchor :index="item.type"/> 
-        <van-cell :title="data.name" v-for="data in item.list" :key="item.list.cityId" />
+        <van-cell :title="data.name" v-for="data in item.list" :key="item.list.cityId" @click="handleClick(data.name)"/>
 
       </div>
 
@@ -50,5 +50,7 @@ const filterCity = (cities) => {
 
 const indexList = computed(()=>dataList.value.map(item=>item.type))
 
-
+const handleClick = (e)=>{
+  console.log(e);
+}
 </script>
