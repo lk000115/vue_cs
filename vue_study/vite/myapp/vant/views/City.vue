@@ -1,10 +1,11 @@
 <template>
   <div>
-    <van-index-bar>
-      <van-index-anchor index="A" />
-      <van-cell title="文本" />
-      <van-cell title="文本" />
-      <van-cell title="文本" />
+    <van-index-bar  :index-list="indexList">
+      <div v-for="item in dataList" :key="item.type">
+        <van-index-anchor :index="item.type"/> 
+        <van-cell :title="data.name" v-for="data in item.list" :key="item.list.cityId" />
+
+      </div>
 
     </van-index-bar>
   </div>
@@ -12,8 +13,11 @@
 
 <script setup>
 import axios from 'axios'
-import { onMounted } from 'vue'
+import { onMounted, ref,computed } from 'vue'
 import { IndexBar as vanIndexBar, IndexAnchor as vanIndexAnchor, Cell as vanCell } from 'vant';
+// import useCityStore from '../store/cityStore'
+// const store = useCityStore()
+const dataList = ref([])
 onMounted(async () => {
   var res = await axios({
     url: "https://m.maizuo.com/gateway?k=1669812",
@@ -23,7 +27,7 @@ onMounted(async () => {
     }
   })
   //  console.log(res.data.data.cities);
-  filterCity(res.data.data.cities)
+  dataList.value = filterCity(res.data.data.cities)
 })
 const filterCity = (cities) => {
   var letterArr = []
@@ -40,8 +44,11 @@ const filterCity = (cities) => {
   // 筛选出item.list.length != 0 的数组 
   newCities = newCities.filter(item => item.list.length)
   console.log(newCities);
+  return newCities
 
 }
+
+const indexList = computed(()=>dataList.value.map(item=>item.type))
 
 
 </script>
