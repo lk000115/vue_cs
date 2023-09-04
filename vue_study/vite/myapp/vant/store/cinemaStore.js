@@ -8,7 +8,7 @@ import {ref,computed} from 'vue'
 import useCityStore from "./cityStore" ;
 
 const useCinemaStore = defineStore('cinema',()=>{
-   //引入另外一个cityStore文件
+   //引入另外一个cityStore文件,此定义语句需要写在回调函数里面
      const cityStore = useCityStore()  ;
      const cinemaList = ref([])
      const getCinemaList = async ()=>{
