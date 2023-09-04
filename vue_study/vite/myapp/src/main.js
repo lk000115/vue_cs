@@ -6,6 +6,9 @@ import App from  '../../myapp/element/App.vue'
 // import store from '../vuex/store/index' 
 import {createPinia} from 'pinia'
 const pinia = createPinia()
+//全局引入ElementPlus插件
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 // 1. 引入你需要的组件
 // import { Button,Swipe, SwipeItem } from 'vant';
@@ -29,4 +32,5 @@ app.use(pinia)    //注册pinia插件
 // app.use(Button);  
 // app.use(Swipe);
 // app.use(SwipeItem);
+app.use(ElementPlus)
 app.mount('#app')
