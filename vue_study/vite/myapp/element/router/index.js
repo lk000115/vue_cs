@@ -8,15 +8,19 @@ const routes = [
      
    {
     path: '/home', 
-    redirect: '/Home'
+    component: Home
    },
    {
     path: '/addnews', 
-    redirect: '/AddNews'
+    component: AddNews
    },
    {
     path: '/newslist', 
-    redirect: '/NewsList'
+    component: NewsList
+   },
+   {
+    path: '/', 
+    redirect: '/home'
    },
    {  
     path: '/:pathMatch(.*)*', 
