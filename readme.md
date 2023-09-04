@@ -289,3 +289,6 @@
 - 样式加上 :deep(被作用选择器)-----深度选择器
 - lodash库，js工具库   npm i lodash
 - lodash  js工具库   npm i lodash   import _ from 'lodash'
+
+### element 
+- npm i element-plus --save
