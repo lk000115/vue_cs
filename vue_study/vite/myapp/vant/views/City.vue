@@ -3,7 +3,7 @@
     <van-index-bar  :index-list="indexList">
       <div v-for="item in dataList" :key="item.type">
         <van-index-anchor :index="item.type"/> 
-        <van-cell :title="data.name" v-for="data in item.list" :key="item.list.cityId" @click="handleClick(data.name)"/>
+        <van-cell :title="data.name" v-for="data in item.list" :key="item.list.cityId" @click="handleChange(data)"/>
 
       </div>
 
@@ -15,8 +15,10 @@
 import axios from 'axios'
 import { onMounted, ref,computed } from 'vue'
 import { IndexBar as vanIndexBar, IndexAnchor as vanIndexAnchor, Cell as vanCell } from 'vant';
-// import useCityStore from '../store/cityStore'
-// const store = useCityStore()
+import useCityStore from '../store/cityStore'
+import {  useRouter } from "vue-router";
+const router = useRouter()
+const store = useCityStore()
 const dataList = ref([])
 onMounted(async () => {
   var res = await axios({
@@ -43,14 +45,17 @@ const filterCity = (cities) => {
   }
   // 筛选出item.list.length != 0 的数组 
   newCities = newCities.filter(item => item.list.length)
-  console.log(newCities);
+  // console.log(newCities);
   return newCities
 
 }
 
 const indexList = computed(()=>dataList.value.map(item=>item.type))
 
-const handleClick = (e)=>{
-  console.log(e);
+const handleChange = ({name,cityId})=>{
+  // console.log(name,cityId);
+  store.change(name,cityId)
+  router.push('/cinemas')
+
 }
 </script>

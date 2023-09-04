@@ -1,18 +1,20 @@
 import axios from 'axios'
 import {defineStore} from 'pinia'
-import {ref,computed} from 'vue'
+import {ref} from 'vue'
 const useCityStore = defineStore("city",()=>{
-    const cityList  =  ref(["A","B","C","E","F"])
-
-
+    const cityName  =  ref("北京")
+    const cityId = ref(110100)
+    const change = (name,id)=>{
+        cityName.value = name 
+        cityId.value = id
+    }
 
    return {
-    cityList,
-
+    cityName,
+    cityId,
+    change
    }  
-      
-
-
+    
 })
 
 
