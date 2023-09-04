@@ -272,6 +272,8 @@
 
 ### vue-router
 - 安装 npm install vue-router@4 --save
+- <router-view> 装载组件的容器.利用插槽技术,根据路由配置加载不同的组件
+- <router-link> 组件内定义跳转的容器
  ### vuex        vuex与vca不兼容
 - 安装 npm i vuex@next --save  
 - 设定一个index.js文件同一存放各组件共享的状态和缓存数据,即共享存储store
