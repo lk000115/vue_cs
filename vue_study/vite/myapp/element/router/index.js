@@ -11,11 +11,11 @@ const routes = [
     component: Home
    },
    {
-    path: '/addnews', 
+    path: '/news/addnews', 
     component: AddNews
    },
    {
-    path: '/newslist', 
+    path: '/news/newslist', 
     component: NewsList
    },
    {

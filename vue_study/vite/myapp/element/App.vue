@@ -5,10 +5,10 @@
     <el-container class="layout-container-demo" style="height: 100vh;">
       <el-aside width="200px">
         <el-scrollbar>
-          <el-menu :router="true">
+          <el-menu :router="true" :default-active="route.fullPath">
             <el-menu-item index="/home">
               <template #title>
-                <el-icon><message /></el-icon>首页
+                <el-icon><HomeFilled /></el-icon>首页
               </template>                 
             </el-menu-item>
             <el-sub-menu index="/news">
@@ -28,11 +28,13 @@
       </el-aside>
   
       <el-container>
-        <el-header style="text-align: right; font-size: 12px">
+        <el-header >
+          <div>新闻管理系统</div>
         </el-header>
   
         <el-main>
           <el-scrollbar>
+            {{ route.fullPath }}
               <router-view> </router-view>
           </el-scrollbar>
         </el-main>
@@ -40,16 +42,13 @@
     </el-container>
   </template>
   
-  <script lang="ts" setup>
+  <script  setup>
   import { ref } from 'vue'
-  import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue'
-  
-  const item = {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  }
-  const tableData = ref(Array.from({ length: 20 }).fill(item))
+  import { Menu as IconMenu, Message, Setting,HomeFilled } from '@element-plus/icons-vue'
+  import {useRoute} from 'vue-router'
+  const route = useRoute()
+  // console.log(route.fullPath);
+
   </script>
   
   <style >
@@ -58,29 +57,12 @@
       padding: 0;
 
  }
+.el-header{
+   background-color: #019fde;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
-
-  /* .layout-container-demo .el-header {
-    position: relative;
-    background-color: var(--el-color-primary-light-7);
-    color: var(--el-text-color-primary);
-  }
-  .layout-container-demo .el-aside {
-    color: var(--el-text-color-primary);
-    background: var(--el-color-primary-light-8);
-  }
-  .layout-container-demo .el-menu {
-    border-right: none;
-  }
-  .layout-container-demo .el-main {
-    padding: 0;
-  }
-  .layout-container-demo .toolbar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    right: 20px;
-  } */
+}
   </style>
   
