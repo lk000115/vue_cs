@@ -90,7 +90,7 @@
   - Access-Control-Allow-Origin: *        允许跨域访问,由后端设置   
   - 跨域访问还可以用jsonp技术解决,(浏览器不同域名下的文件是不能访问,就是跨域限制)
   - vue 插件 volar
-  - vite安装  npm create vite@latest  运行 ：  npm run dev
+  - vite安装--初始化vue项目文件  npm create vite@latest  运行 ：  npm run dev     
   - v-bind="$attrs"  加上此属性直接把父组件的属性透传过来
   - 父组件传子组件,通过在父组件上设置自定义属性,子组件设置prop属性接受
   - 子组件传父组件,通过父组件设置自定义事件,子组件执行this.$emit('event',this.data)把数据传递给父组件
