@@ -9,3 +9,10 @@
 /vue_study/vite/myapp/package-lock.json
 /vue_study/vite/myapp/index.html
 /vue_study/vite/myapp/.gitignore
+/vue_study/vite/myapp-ts/node_modules
+/vue_study/vite/myapp-ts/.vscode
+/vue_study/vite/myapp-ts/vite.config.js
+/vue_study/vite/myapp-ts/package.json
+/vue_study/vite/myapp-ts/package-lock.json
+/vue_study/vite/myapp-ts/index.html
+/vue_study/vite/myapp-ts/.gitignore
