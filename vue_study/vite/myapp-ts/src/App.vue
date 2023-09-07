@@ -1,30 +1,45 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    app {{ state.myname }}--{{ name }}
+    <p> 
+
+      --- {{computedName }}---
+    </p>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <button @click="handleClick(1)">按钮</button>
+<div ref="mydiv">我是div</div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script setup lang="ts">
+import { onMounted, reactive,ref,computed} from 'vue'
+import type {Ref} from 'vue'
+//隐式推导
+// const state = reactive({
+//    myname:"kerwin",
+// })
+//显式推导,先显式的定义数据类型
+interface IState{
+  myname:string
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+const state:IState = reactive({
+  myname:"kerwin"
+})
+
+// 1 写法1
+// const name:Ref<string> = ref("kerwin")
+// 2 写法2
+const name = ref<string>("kerwin")
+const mydiv = ref<HTMLDivElement>()
+onMounted(()=>{
+  console.log(mydiv.value?.innerHTML);   //?表示前面为假就不会执行后面的.(js的知识点)
+  
+})
+//计算属性,<>指定计算属性结果的数据类型
+const computedName = computed<string>(()=>name.value.substring(0,1).toUpperCase()+name.value.substring(1))
+//方法,形参指定参数类型
+const handleClick = (index:number)=>{
+  console.log(index);
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+
+</script>
