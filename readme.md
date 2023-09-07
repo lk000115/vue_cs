@@ -292,3 +292,7 @@
 
 ### element 
 - npm i element-plus --save
+
+
+### js知识点
+- mydiv.value?.innerHTML中"?"的意思是在确定mydiv.value是否为null或undefined之后，尝试获取其innerHTML属性。

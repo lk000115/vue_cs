@@ -34,7 +34,6 @@
   
         <el-main>
           <el-scrollbar>
-            {{ route.fullPath }}
               <router-view> </router-view>
           </el-scrollbar>
         </el-main>
