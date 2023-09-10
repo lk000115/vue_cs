@@ -296,3 +296,7 @@
 
 ### js知识点
 - mydiv.value?.innerHTML中"?"的意思是在确定mydiv.value是否为null或undefined之后，尝试获取其innerHTML属性。
+
+### uni-app项目   
+- - 克隆项目
+    git clone http://git.itcast.cn/heimaqianduan/erabbit-uni-app-vue3-ts.git  heima-shop
