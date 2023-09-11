@@ -300,3 +300,8 @@
 ### uni-app项目   
 - - 克隆项目
     git clone http://git.itcast.cn/heimaqianduan/erabbit-uni-app-vue3-ts.git  heima-shop
+
+
+- 安装 pnpm 1 npm install  pnpm -g     
+-      2 //查看源     pnpm config get registry 
+         //切换淘宝源  pnpm config set registry http://registry.npm.taobao.org 
