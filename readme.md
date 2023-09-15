@@ -73,7 +73,7 @@
 - resize 屏幕大小改变时触发事件  可以获取窗口尺寸 window.innerWidth
 
 ###  node导入报错
- 
+
    import { createRequire } from 'module';
    const require = createRequire(import.meta.url);
 
@@ -305,3 +305,11 @@
 - 安装 pnpm 1 npm install  pnpm -g     
 -      2 //查看源     pnpm config get registry 
          //切换淘宝源  pnpm config set registry http://registry.npm.taobao.org 
+
+-  **命令行创建** **uni-app** **项目**
+
+  1. npx degit dcloudio/uni-preset-vue#vite-ts 项目名称 
+  2. 安装依赖 `pnpm install`
+  3. 编译成微信小程序 `pnpm dev:mp-weixin`
+  4. 导入微信开发者工具
+  5. 下载模板  https://uniapp.dcloud.net.cn/quickstart-cli.html#
